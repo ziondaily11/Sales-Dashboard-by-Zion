@@ -5,7 +5,7 @@ import matplotlib
 import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
 import warnings
-#from geopy.geocoders import Nominatim
+
 import sys 
 sys.modules['warnings'] = warnings
 
@@ -77,16 +77,16 @@ st.set_page_config(page_title= "Sales Dashbord",
                     layout= "wide")
 @st.cache_data
 def excel_store():
-        orders_dt= pd.read_csv(r"C:\Users\HomePC\Desktop\Pandas CSV preject\output\order_items.csv")
+        orders_dt= pd.read_csv("https://drive.google.com/uc?export=download&id=1s6Mzksk3mIAnjkP9T2WgLAH6truZFRbU")
     
-        order_items_dt= pd.read_csv( r"C:\Users\HomePC\Desktop\Pandas CSV preject\output\orders.csv")
+        order_items_dt= pd.read_csv("https://drive.google.com/uc?export=download&id=16-2Ph3OGsvzhs3aN0QCbHb40Ina5LX45")
         dt= pd.merge(
             order_items_dt,
             orders_dt,
             on ="order_id",
             how= "left"
         ) 
-        products_dt= pd.read_csv(r"C:\Users\HomePC\Desktop\Pandas CSV preject\output\products.csv")
+        products_dt= pd.read_csv("https://drive.google.com/uc?export=download&id=1VF2LkmnrglBF0AGva7ocaNukylQMdtSB")
         df= pd.merge(
             products_dt,
             dt,
@@ -289,9 +289,9 @@ def show_home():
  #customer insights
 @st.cache_data
 def xcl_store():
-        df= pd.read_csv(r"C:\Users\HomePC\Desktop\Pandas CSV preject\output\customers.csv")
+        df= pd.read_csv("https://drive.google.com/uc?export=download&id=1OCL0jy69aTlz6VEu8GvvHlNtiLVpztrQ")
 
-        dt= pd.read_csv(r"C:\Users\HomePC\Desktop\Pandas CSV preject\output\customer_support_tickets.csv")
+        dt= pd.read_csv("https://drive.google.com/uc?export=download&id=1P8Bp6XZyj_IEwe4tPk5m5wDn5z9JUha-")
         customers_dt= pd.merge(
             df,
             dt,
