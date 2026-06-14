@@ -277,7 +277,7 @@ def show_home():
         sales_per_year,
         x= "year",
         y="net_sales",
-        title= "<b> yearly sales overtime>",
+        title= "<b> yearly sales overtime>,
         markers= True,
         color_discrete_sequence= ["#b27320"],
         
@@ -288,7 +288,8 @@ def show_home():
         xaxis= dict(
             range= [2020, 2024],
             showgrid= False,
-            dtick= 1
+            dtick= 1,
+            showticklabels= False
         ),
         title_font_color= "green"   
     )
