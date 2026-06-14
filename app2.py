@@ -79,7 +79,7 @@ st.set_page_config(page_title= "Sales Dashbord",
                     page_icon= ":bar_chart:",
                     layout= "wide")
 
-    import requests
+    
 
 @st.cache_data
 def excel_store():
