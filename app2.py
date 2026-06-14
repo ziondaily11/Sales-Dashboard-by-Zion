@@ -266,10 +266,8 @@ def show_home():
         xaxis= dict(
             title= "Sales"
 
-        ),
-        yaxis= dict(
-            showticklabels= False
-            )
+        )
+        
     )
     
     
