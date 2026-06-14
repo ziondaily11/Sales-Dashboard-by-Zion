@@ -101,7 +101,7 @@ def excel_store():
             on ="product_id",
             how= "left"
         )
-        df= df[['product_id', 'product_name',
+    df= df[['product_id', 'product_name',
                 'category', 'subcategory', 'brand',
         'cost_price', 'selling_price', 
         'profit_margin_pct', 'order_id', 'order_date', 
