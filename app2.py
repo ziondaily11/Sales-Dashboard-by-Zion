@@ -299,9 +299,9 @@ def show_home():
  #customer insights
 @st.cache_data
 def xcl_store():
-        df= pd.read_csv("https://drive.google.com/uc?export=download&id=1OCL0jy69aTlz6VEu8GvvHlNtiLVpztrQ")
-
-        dt= pd.read_csv("https://drive.google.com/uc?export=download&id=1P8Bp6XZyj_IEwe4tPk5m5wDn5z9JUha-")
+    df = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQQbLvfnKB3WMaw98GueEScb0B6n4SXhw5dTNDq6-1zoojhUFChiDfli1nBc6TOJzHM55Rkrrqbq9Bi/pub?output=csv")
+    dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQtKWIUDlK2HnqIONRKaz9AL50T0iIXnVHL5Uo3z6dHvlfRFPpqCCyWZcbaEbYVu8zBll85mvd9imAF/pub?output=csv")
+    
         customers_dt= pd.merge(
             df,
             dt,
