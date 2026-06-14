@@ -81,26 +81,16 @@ st.set_page_config(page_title= "Sales Dashbord",
 
     
 
+def download_csv(sheet_id):
+    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
+    response = requests.get(url)
+    return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
+
 @st.cache_data
 def excel_store():
-    def download_csv(file_id):
-        url = f"https://drive.google.com/uc?export=download&id={file_id}"
-        session = requests.Session()
-        response = session.get(url, stream=True)
-        
-        # Handle large file virus scan warning
-        token = None
-        for key, value in response.cookies.items():
-            if key.startswith("download_warning"):
-                token = value
-        if token:
-            response = session.get(url, params={"confirm": token}, stream=True)
-        
-        return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
-
-    orders_dt = download_csv("1s6Mzksk3mIAnjkP9T2WgLAH6truZFRbU")
-    order_items_dt = download_csv("16-2Ph3OGsvzhs3aN0QCbHb40Ina5LX45")
-    products_dt = download_csv("1VF2LkmnrglBF0AGva7ocaNukylQMdtSB")
+    orders_dt = download_csv("1PWCHcYVcr3rKYavVEOhbdHlj6takzfOADY8kis2tEpE")
+    order_items_dt = download_csv("1Mge-Yfawi86FzLajGlYpBtB3AoFJvSSsMzW2pPIrd54")
+    products_dt = download_csv("132MwmvvHLYyOSqJpCfagg4GSbnMCkcG-X1iJn9xgFic")
     
     dt= pd.merge(
         orders_dt,
