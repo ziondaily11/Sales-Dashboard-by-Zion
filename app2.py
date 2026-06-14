@@ -290,8 +290,10 @@ def show_home():
             range= [2020, 2024],
             showgrid= False,
             dtick= 1,
-            showticklabels= False
         ),
+        yaxis= dict(
+            showticklabels= False,
+            title= None),
         title_font_color= "green"   
     )
     far_rig.plotly_chart(yearly_sales_bar, use_container_width= True)
