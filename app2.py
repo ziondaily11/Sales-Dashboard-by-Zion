@@ -290,7 +290,7 @@ def show_home():
             dtick= 1,
         ),
         yaxis= dict(
-            showgrid= False
+            showgrid= False,
             showticklabels= False,
             title= None),
         title_font_color= "green"   
