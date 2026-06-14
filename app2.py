@@ -246,7 +246,7 @@ def show_home():
     )
     left, right, far_rig= st.columns(3)
 
-    right.plotly_chart(cat_pie_chart, use_container_width= True)
+    
     #sales by region
     
     region_sales_bar= px.bar(
@@ -268,10 +268,10 @@ def show_home():
 
         ),
         yaxis= dict(
-            showticklabels= False,
-            title= None)
+            showticklabels= False
+            )
     )
-    left.plotly_chart(region_sales_bar, use_container_width= True)
+    
     
     #sales Per year line graph
     yearly_sales_bar= px.line(
@@ -296,7 +296,11 @@ def show_home():
             title= None),
         title_font_color= "green"   
     )
-    far_rig.plotly_chart(yearly_sales_bar, use_container_width= True)
+    with st.container:
+        left, right, far_rig= st.columns(3)
+            right.plotly_chart(cat_pie_chart, use_container_width= True)
+            far_rig.plotly_chart(yearly_sales_bar, use_container_width= True)
+            left.plotly_chart(region_sales_bar, use_container_width= True)
     st.dataframe(df.head(101))
 
  #customer insights
