@@ -269,7 +269,7 @@ def show_home():
         ),
         yaxis= dict(
             showticklabels= False,
-            title= None
+            title= None)
     )
     left.plotly_chart(region_sales_bar, use_container_width= True)
     
