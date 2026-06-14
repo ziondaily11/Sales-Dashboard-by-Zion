@@ -296,6 +296,15 @@ def show_home():
             title= None),
         title_font_color= "green"   
     )
+    st.markdown("""
+    <style>
+    .stContainer {
+        background-color: #1e1e1e;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    </style>
+""", unsafe_allow_html=True)
     with st.container():
         left, right, far_rig= st.columns(3)
         right.plotly_chart(cat_pie_chart, use_container_width= True)
