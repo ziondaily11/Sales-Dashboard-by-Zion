@@ -5,6 +5,7 @@ import matplotlib
 import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
 import warnings
+import gdown
 
 import sys 
 sys.modules['warnings'] = warnings
@@ -77,16 +78,20 @@ st.set_page_config(page_title= "Sales Dashbord",
                     layout= "wide")
 @st.cache_data
 def excel_store():
-        orders_dt= pd.read_csv("https://drive.google.com/uc?export=download&id=1s6Mzksk3mIAnjkP9T2WgLAH6truZFRbU")
+    orders_dt = gdown.download("https://drive.google.com/uc?export=download&id=1s6Mzksk3mIAnjkP9T2WgLAH6truZFRbU", quiet=True)
+    orders_dt = pd.read_csv(orders_dt)
     
-        order_items_dt= pd.read_csv("https://drive.google.com/uc?export=download&id=16-2Ph3OGsvzhs3aN0QCbHb40Ina5LX45")
-        dt= pd.merge(
-            order_items_dt,
-            orders_dt,
-            on ="order_id",
-            how= "left"
-        ) 
-        products_dt= pd.read_csv("https://drive.google.com/uc?export=download&id=1VF2LkmnrglBF0AGva7ocaNukylQMdtSB")
+    order_items_dt = gdown.download("https://drive.google.com/uc?export=download&id=16-2Ph3OGsvzhs3aN0QCbHb40Ina5LX45", quiet=True)
+    order_items_dt = pd.read_csv(order_items_dt)
+    dt= pd.merge(
+        orders_dt,
+        order_items_dt,
+        on= "order_id",
+        how= "left"
+    
+    
+    products_dt = gdown.download("https://drive.google.com/uc?export=download&id=1VF2LkmnrglBF0AGva7ocaNukylQMdtSB", quiet=True)
+    products_dt = pd.read_csv(products_dt)
         df= pd.merge(
             products_dt,
             dt,
