@@ -296,7 +296,7 @@ def show_home():
             title= None),
         title_font_color= "green"   
     )
-    with st.container:
+    with st.container():
         left, right, far_rig= st.columns(3)
             right.plotly_chart(cat_pie_chart, use_container_width= True)
             far_rig.plotly_chart(yearly_sales_bar, use_container_width= True)
