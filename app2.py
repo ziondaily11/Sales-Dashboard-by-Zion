@@ -95,7 +95,7 @@ def excel_store():
     
     
    
-        df= pd.merge(
+    df= pd.merge(
             products_dt,
             dt,
             on ="product_id",
