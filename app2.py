@@ -87,7 +87,7 @@ def excel_store():
         orders_dt,
         order_items_dt,
         on= "order_id",
-        how= "left"
+        how= "left")
     
     
     products_dt = gdown.download("https://drive.google.com/uc?export=download&id=1VF2LkmnrglBF0AGva7ocaNukylQMdtSB", quiet=True)
