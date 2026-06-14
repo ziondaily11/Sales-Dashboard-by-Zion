@@ -302,19 +302,19 @@ def xcl_store():
     df = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQQbLvfnKB3WMaw98GueEScb0B6n4SXhw5dTNDq6-1zoojhUFChiDfli1nBc6TOJzHM55Rkrrqbq9Bi/pub?output=csv")
     dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQtKWIUDlK2HnqIONRKaz9AL50T0iIXnVHL5Uo3z6dHvlfRFPpqCCyWZcbaEbYVu8zBll85mvd9imAF/pub?output=csv")
     
-        customers_dt= pd.merge(
+    customers_dt= pd.merge(
             df,
             dt,
             on=("customer_id"),
             how= "left"
         )
-        customers_dt["full_name"]= customers_dt["first_name"]+" "+customers_dt["last_name"]
-        customers_dt= customers_dt[["customer_id", "full_name", "gender", "loyalty_tier",
+    customers_dt["full_name"]= customers_dt["first_name"]+" "+customers_dt["last_name"]
+    customers_dt= customers_dt[["customer_id", "full_name", "gender", "loyalty_tier",
                                     "age", "city", "country", "signup_date", "customer_segment", 
                                     "churn_probability",
                                     "customer_lifetime_value", "ticket_date", "resolution_days", "satisfaction_score"]]
         
-        return customers_dt
+    return customers_dt
 @st.cache_data
 def load_data(customers_dt):
     def format_number(num):
