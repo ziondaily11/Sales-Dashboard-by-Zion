@@ -264,11 +264,12 @@ def show_home():
         font_color="white",
         title_font_color="green",
         xaxis= dict(
-            showticklabels= False,
             title= "Sales"
 
-        )
-        
+        ),
+        yaxis= dict(
+            showticklabels= False,
+            title= None
     )
     left.plotly_chart(region_sales_bar, use_container_width= True)
     
