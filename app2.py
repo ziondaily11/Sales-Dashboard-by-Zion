@@ -91,6 +91,8 @@ def excel_store():
     orders_dt = download_csv("1PWCHcYVcr3rKYavVEOhbdHlj6takzfOADY8kis2tEpE")
     order_items_dt = download_csv("1Mge-Yfawi86FzLajGlYpBtB3AoFJvSSsMzW2pPIrd54")
     products_dt = download_csv("132MwmvvHLYyOSqJpCfagg4GSbnMCkcG-X1iJn9xgFic")
+    st.write("orders columns:", orders_dt.columns.tolist())
+    st.write("order_items columns:", order_items_dt.columns.tolist())
     
     dt= pd.merge(
         orders_dt,
