@@ -5,5 +5,5 @@ plotly-express
 streamlit-option-menu
 openpyxl
 matplotlib
-gdown
+
 requests
