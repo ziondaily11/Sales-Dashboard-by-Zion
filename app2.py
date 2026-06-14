@@ -83,9 +83,13 @@ def excel_store():
     order_items_url = "https://drive.google.com/uc?export=download&id=16-2Ph3OGsvzhs3aN0QCbHb40Ina5LX45"
     products_url = "https://drive.google.com/uc?export=download&id=1VF2LkmnrglBF0AGva7ocaNukylQMdtSB"
 
-    orders_dt = pd.read_csv(io.StringIO(gdown.download(orders_url, quiet=True, fuzzy=True)))
-    order_items_dt = pd.read_csv(io.StringIO(gdown.download(order_items_url, quiet=True, fuzzy=True)))
-    products_dt = pd.read_csv(io.StringIO(gdown.download(products_url, quiet=True, fuzzy=True)))
+    gdown.download(orders_url, "orders.csv", quiet=True, fuzzy=True)
+    gdown.download(order_items_url, "order_items.csv", quiet=True, fuzzy=True)
+    gdown.download(products_url, "products.csv", quiet=True, fuzzy=True)
+
+    orders_dt = pd.read_csv("orders.csv")
+    order_items_dt = pd.read_csv("order_items.csv")
+    products_dt = pd.read_csv("products.csv")
     
     dt= pd.merge(
         orders_dt,
