@@ -244,7 +244,7 @@ def show_home():
         font_color="white",
         title_font_color="green"
     )
-    left, right, far_rig= st.columns(3)
+    
 
     
     #sales by region
