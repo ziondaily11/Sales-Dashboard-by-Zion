@@ -82,10 +82,9 @@ st.set_page_config(page_title= "Sales Dashbord",
     
 
 def download_csv(sheet_id):
-    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
-    response = requests.get(url)
+    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=0"
+    response = requests.get(url, allow_redirects=True)
     return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
-
 @st.cache_data
 def excel_store():
     orders_dt = download_csv("1PWCHcYVcr3rKYavVEOhbdHlj6takzfOADY8kis2tEpE")
