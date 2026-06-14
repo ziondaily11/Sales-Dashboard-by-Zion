@@ -5,6 +5,7 @@ import matplotlib
 import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
 import warnings
+import requests
 import gdown
 import io
 
@@ -77,19 +78,29 @@ st.markdown("""
 st.set_page_config(page_title= "Sales Dashbord",
                     page_icon= ":bar_chart:",
                     layout= "wide")
+
+    import requests
+
 @st.cache_data
 def excel_store():
-    orders_url = "https://drive.google.com/uc?export=download&id=1s6Mzksk3mIAnjkP9T2WgLAH6truZFRbU"
-    order_items_url = "https://drive.google.com/uc?export=download&id=16-2Ph3OGsvzhs3aN0QCbHb40Ina5LX45"
-    products_url = "https://drive.google.com/uc?export=download&id=1VF2LkmnrglBF0AGva7ocaNukylQMdtSB"
+    def download_csv(file_id):
+        url = f"https://drive.google.com/uc?export=download&id={file_id}"
+        session = requests.Session()
+        response = session.get(url, stream=True)
+        
+        # Handle large file virus scan warning
+        token = None
+        for key, value in response.cookies.items():
+            if key.startswith("download_warning"):
+                token = value
+        if token:
+            response = session.get(url, params={"confirm": token}, stream=True)
+        
+        return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
 
-    gdown.download(orders_url, "orders.csv", quiet=True, fuzzy=True)
-    gdown.download(order_items_url, "order_items.csv", quiet=True, fuzzy=True)
-    gdown.download(products_url, "products.csv", quiet=True, fuzzy=True)
-
-    orders_dt = pd.read_csv("orders.csv")
-    order_items_dt = pd.read_csv("order_items.csv")
-    products_dt = pd.read_csv("products.csv")
+    orders_dt = download_csv("1s6Mzksk3mIAnjkP9T2WgLAH6truZFRbU")
+    order_items_dt = download_csv("16-2Ph3OGsvzhs3aN0QCbHb40Ina5LX45")
+    products_dt = download_csv("1VF2LkmnrglBF0AGva7ocaNukylQMdtSB")
     
     dt= pd.merge(
         orders_dt,
