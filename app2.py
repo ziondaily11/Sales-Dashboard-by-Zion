@@ -112,6 +112,7 @@ def excel_store():
 
 
     return df
+st.dataframe(df)
 @st.cache_data
 def store_2(df):
     df= excel_store()
