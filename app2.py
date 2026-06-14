@@ -80,29 +80,21 @@ st.set_page_config(page_title= "Sales Dashbord",
                     layout= "wide")
 
     
-def download_csv(sheet_id):
-    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=0"
-    response = requests.get(url, allow_redirects=True)
-    st.write("Status code:", response.status_code)
-    st.write("First 500 chars:", response.content[:500])
+def download_csv(pub_url):
+    response = requests.get(pub_url)
     return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
 
 @st.cache_data
 def excel_store():
-    orders_dt = download_csv("1PWCHcYVcr3rKYavVEOhbdHlj6takzfOADY8kis2tEpE")
-    order_items_dt = download_csv("1Mge-Yfawi86FzLajGlYpBtB3AoFJvSSsMzW2pPIrd54")
-    products_dt = download_csv("132MwmvvHLYyOSqJpCfagg4GSbnMCkcG-X1iJn9xgFic")
-    st.write("orders columns:", orders_dt.columns.tolist())
-    st.write("order_items columns:", order_items_dt.columns.tolist())
-    
+    orders_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTM0OV17ARTPBIFMnQC-DmYIZMcQ5pvGVuHVuXFcT_lsUG1PNfe5aDj12s9Zva3ebAUWasIGPeTNAUp/pub?output=csv")
+    order_items_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTneMnypJ7M-1okZDOjTWCnIoxF6NmVVrFsa2zlLbkjLlu3axFqtkdHTc1Q-mTigQU7X6A4tqZvkkeX/pub?output=csv")
+    products_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQqRDfmfmUQGG0irIAn_ZkhC_iKiRCsMzLVl_s_2Wa0R7ULD6D3TGmKksyYlb1sTbHnYkAn5Pk-6DMg/pub?output=csv")
     dt= pd.merge(
         orders_dt,
         order_items_dt,
         on= "order_id",
         how= "left")
     
-    
-   
     df= pd.merge(
             products_dt,
             dt,
