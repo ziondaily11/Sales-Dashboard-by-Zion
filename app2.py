@@ -277,7 +277,7 @@ def show_home():
         sales_per_year,
         x= "year",
         y="net_sales",
-        title= "<b> yearly sales overtime>,
+        title= "<b> yearly sales overtime>",
         markers= True,
         color_discrete_sequence= ["#b27320"],
         
