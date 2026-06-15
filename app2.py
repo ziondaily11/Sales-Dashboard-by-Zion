@@ -215,31 +215,25 @@ def show_home():
         st.metric(label= "Total Producs", value= format_number(unique_products))
     # Filter out tiny slices before plotting
     
-    colors = px.colors.qualitative.Bold
-    cat_pie_chart =go.Figure(go.Pie(
+
+    cat_chart =px.bar(
         
-        labels= profit_per_category["category"],
-        values=profit_per_category["net_sales"],
-        hole= 0.5,
-        textinfo= "label+percent",
-        textposition="outside"
-        
-        
+        y= profit_per_category["category"],
+        x=profit_per_category["net_sales"],
+        title= "<b>Sales by Category</b>",
+        orientation= "h",
+        color_discrete_sequence= ["#ffA600"]
     )
-    )
-    cat_pie_chart.update_traces(
-         outsidetextfont=dict(size= 12),
-         domain= dict(x=[0.1, 0.9], y=[0.1, 0.9])
-    )
+    
+
 
     cat_pie_chart.update_layout(
-         uniformtext_minsize=10,
-         uniformtext_mode='hide',
+        xaxis= dict(
+            showgrid= False
+            
+        ),
         plot_bgcolor= "rgba(0, 0, 0, 0)",
-        
         showlegend= False,
-        title= "<b>Sales by Category</b>",
-        
         paper_bgcolor="rgba(0, 0, 0, 0)",
         font_color="white",
         title_font_color="green"
