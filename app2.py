@@ -227,7 +227,7 @@ def show_home():
     
 
 
-    cat_pie_chart.update_layout(
+    cat_chart.update_layout(
         xaxis= dict(
             showgrid= False
             
@@ -300,7 +300,7 @@ def show_home():
     """, unsafe_allow_html=True)
     with st.container():
         left, right, far_rig= st.columns(3)
-        right.plotly_chart(cat_pie_chart, use_container_width= True)
+        right.plotly_chart(cat_chart, use_container_width= True)
         far_rig.plotly_chart(yearly_sales_bar, use_container_width= True)
         left.plotly_chart(region_sales_bar, use_container_width= True)
     st.dataframe(df.head(101))
