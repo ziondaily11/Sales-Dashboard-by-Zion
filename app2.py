@@ -273,8 +273,7 @@ def show_home():
         color_discrete_sequence= ["#b27320"],
     )
     yearly_sales_bar.update_traces(
-        line_shape= "spline",
-        smoothing=1.3
+        line_shape= "spline"
     )
     yearly_sales_bar.update_layout(
         xaxis= dict(
