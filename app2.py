@@ -263,7 +263,6 @@ def show_home():
         
     )
     
-    
     #sales Per year line graph
     yearly_sales_bar= px.line(
         sales_per_year,
@@ -274,7 +273,8 @@ def show_home():
         color_discrete_sequence= ["#b27320"],
     )
     yearly_sales_bar.update_traces(
-        line_shape= "spline")
+        line_shape= "spline",
+        smoothing= 1.3)
     yearly_sales_bar.update_layout(
         xaxis= dict(
             range= [2020, 2024],
