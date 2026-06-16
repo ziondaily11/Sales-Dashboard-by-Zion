@@ -221,7 +221,7 @@ def show_home():
         x=profit_per_category["net_sales"],
         title= "<b>Sales by Category</b>",
         orientation= "h",
-        color_discrete_sequence= ["#752F05"]
+        color_discrete_sequence= ["#AB4A0E"]
     )
     
 
