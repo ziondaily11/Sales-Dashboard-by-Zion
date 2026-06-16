@@ -272,10 +272,9 @@ def show_home():
         title= "<b> yearly sales overtime>",
         markers= True,
         color_discrete_sequence= ["#b27320"],
-        
-        
-
     )
+    yearly_sales_bar.update_traces(
+        line_shape= "spline")
     yearly_sales_bar.update_layout(
         xaxis= dict(
             range= [2020, 2024],
