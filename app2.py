@@ -274,7 +274,8 @@ def show_home():
     )
     yearly_sales_bar.update_traces(
         line_shape= "spline",
-        smoothing= 1.3)
+        smoothing=1.3
+    )
     yearly_sales_bar.update_layout(
         xaxis= dict(
             range= [2020, 2024],
