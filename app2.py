@@ -131,13 +131,11 @@ def store_2(df):
     sales_per_year=(
         df.groupby(by=df["year"])[["net_sales"]]
         .sum()
-        .sort_values()
         .reset_index()
     )
     sales_per_region=(
         df.groupby(by= df["region"])[["net_sales"]]
         .sum()
-        .sort_values()
         .reset_index()
     )
     #product count
