@@ -6,9 +6,7 @@ import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
 import warnings
 import requests
-
 import io
-
 import sys 
 sys.modules['warnings'] = warnings
 
@@ -131,10 +129,16 @@ def store_2(df):
     df["order_date"]= pd.to_datetime(df["order_date"])
     df["year"]= df["order_date"].dt.year
     sales_per_year=(
-        df.groupby(by=df["year"])[["net_sales"]].sum().reset_index()
+        df.groupby(by=df["year"])[["net_sales"]]
+        .sum()
+        .sort_values()
+        .reset_index()
     )
     sales_per_region=(
-        df.groupby(by= df["region"])[["net_sales"]].sum().reset_index()
+        df.groupby(by= df["region"])[["net_sales"]]
+        .sum()
+        .sort_values()
+        .reset_index()
     )
     #product count
     unique_products= df["product_id"].nunique()
@@ -235,7 +239,7 @@ def show_home():
         showlegend= False,
         paper_bgcolor="rgba(0, 0, 0, 0)",
         font_color="white",
-        title_font_color="green"
+        title_font_color="#752F05" 
     )
     
 
@@ -255,7 +259,7 @@ def show_home():
 
     region_sales_bar.update_layout(
         font_color="white",
-        title_font_color="green",
+        title_font_color="#752F05" ,
         xaxis= dict(
             title= "Sales"
 
@@ -268,7 +272,7 @@ def show_home():
         sales_per_year,
         x= "year",
         y="net_sales",
-        title= "<b> yearly sales overtime>",
+        title= "<b>Yearly Sales Over Time</b>",
         markers= True,
         color_discrete_sequence= ["#b27320"],
     )
@@ -285,17 +289,9 @@ def show_home():
             showgrid= False,
             showticklabels= False,
             title= None),
-        title_font_color= "green"   
+        title_font_color= "#752F05" 
     )
-    st.markdown("""
-    <style>
-    .stContainer {
-        background-color: #000000;
-        border-radius: 10px;
-        padding: 20px;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+    
     col= st.columns(1)[0]
     col.plotly_chart(yearly_sales_bar, use_container_width= True)
     left, right= st.columns(2)
