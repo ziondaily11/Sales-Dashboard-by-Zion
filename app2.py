@@ -10,6 +10,10 @@ import io
 import sys 
 sys.modules['warnings'] = warnings
 #option menu code
+st.set_page_config(page_title= "Sales Dashbord",
+                    page_icon= ":bar_chart:",
+                    layout= "wide")
+
 selected = option_menu(
     menu_title=None,
     options=["Home", "Customers", "Marketing", "Graphs"],
@@ -29,9 +33,6 @@ selected = option_menu(
         "nav-link-selected": {"background-color": "#2a2d3e"},
     },
 )
-st.set_page_config(page_title= "Sales Dashbord",
-                    page_icon= ":bar_chart:",
-                    layout= "wide")
 
     
 def download_csv(pub_url):
