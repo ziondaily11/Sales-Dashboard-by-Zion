@@ -76,7 +76,7 @@ st.markdown("""
             }
         </style>
     """, unsafe_allow_html=True)
-    st.markdown("""
+st.markdown("""
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     """, unsafe_allow_html=True)
             
