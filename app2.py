@@ -10,54 +10,20 @@ import io
 import sys 
 sys.modules['warnings'] = warnings
 #option menu code
-NAV_WIDTH = 90  # px
-
-st.markdown(f"""
-<style>
-ul.nav.nav-pills {{
-    position: fixed !important;
-    right: 0;
-    top: 0;
-    height: 100vh !important;
-    width: {NAV_WIDTH}px !important;
-    z-index: 999;
-    flex-direction: column !important;
-    overflow-y: auto;
-}}
-
-[data-testid="stAppViewContainer"] > .main {{
-    margin-right: {NAV_WIDTH}px;
-}}
-</style>
-""", unsafe_allow_html=True)
-
 selected = option_menu(
     menu_title=None,
     options=["Home", "Customers", "Marketing", "Graphs"],
     icons=["house", "people", "megaphone", "bar-chart"],
     default_index=0,
-    orientation="h",
+    orientation="horizontal",
     styles={
-        "container": {
-            "padding": "0!important",
-            "background-color": "#1a1c29",
-        },
-        "icon": {
-            "color": "#00d9ff",
-            "font-size": "20px",
-            "display": "block",
-            "margin": "0 auto 4px auto",
-        },
+        "container": {"padding": "0!important", "background-color": "#1a1c29"},
+        "icon": {"color": "#00d9ff", "font-size": "18px"},
         "nav-link": {
-            "font-size": "11px",
+            "font-size": "14px",
             "text-align": "center",
-            "padding": "16px 4px",
-            "margin": "2px 0px",
+            "margin": "0px",
             "color": "white",
-            "display": "flex",
-            "flex-direction": "column",
-            "align-items": "center",
-            "justify-content": "center",
             "--hover-color": "#2a2d3e",
         },
         "nav-link-selected": {"background-color": "#2a2d3e"},
