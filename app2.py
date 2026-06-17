@@ -11,7 +11,7 @@ import sys
 sys.modules['warnings'] = warnings
 #option menu code
 main_col, nav_col = st.columns([10, 1])
-with nav_column:
+with nav_col:
         selected = option_menu(
                 menu_title=None,
                 options=["Home", "Customers", "Marketing", "Graphs"],
