@@ -11,6 +11,18 @@ import sys
 sys.modules['warnings'] = warnings
 #option menu code
 main_col, nav_col = st.columns([10, 1])
+st.markdown("""
+<style>
+[data-testid="column"]:nth-of-type(2) {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 70px;
+    z-index: 999;
+}
+</style>
+""", unsafe_allow_html=True)
 with nav_col:
         selected = option_menu(
                 menu_title=None,
