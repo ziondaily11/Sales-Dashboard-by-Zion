@@ -13,15 +13,10 @@ sys.modules['warnings'] = warnings
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-NAV_WIDTH = 180  # px, matches the fixed strip width below
+NAV_WIDTH = 90  # px - narrow column since label sits under icon now
 
-# reserve space on the right so content doesn't render under the fixed strip
 st.markdown(f"""
 <style>
-[data-testid="stAppViewContainer"] > .main {{
-    margin-right: {NAV_WIDTH}px;
-}}
-
 [data-testid="stIframe"] {{
     position: fixed !important;
     right: 0;
@@ -35,6 +30,10 @@ st.markdown(f"""
 [data-testid="stIframe"] > iframe {{
     height: 100vh !important;
     width: {NAV_WIDTH}px !important;
+}}
+
+[data-testid="stAppViewContainer"] > .main {{
+    margin-right: {NAV_WIDTH}px;
 }}
 </style>
 """, unsafe_allow_html=True)
@@ -51,23 +50,27 @@ selected = option_menu(
             "background-color": "#1a1c29",
             "height": "100vh",
         },
-        "icon": {"color": "#00d9ff", "font-size": "18px"},
+        "icon": {
+            "color": "#00d9ff",
+            "font-size": "20px",
+            "display": "block",
+            "margin": "0 auto 4px auto",
+        },
         "nav-link": {
-            "font-size": "14px",
-            "text-align": "left",
-            "padding": "14px 16px",
-            "margin": "4px 0px",
+            "font-size": "11px",
+            "text-align": "center",
+            "padding": "16px 4px",
+            "margin": "2px 0px",
             "color": "white",
+            "display": "flex",
+            "flex-direction": "column",
+            "align-items": "center",
+            "justify-content": "center",
             "--hover-color": "#2a2d3e",
         },
         "nav-link-selected": {"background-color": "#2a2d3e"},
     },
-)
-            
-    
-    
-    
-    
+) 
 st.set_page_config(page_title= "Sales Dashbord",
                     page_icon= ":bar_chart:",
                     layout= "wide")
