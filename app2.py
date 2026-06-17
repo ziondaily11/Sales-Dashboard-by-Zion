@@ -228,7 +228,6 @@ def show_home():
         sales_per_year,
         x= "year",
         y="net_sales",
-        title= "<b>Yearly Sales Over Time</b>",
         markers= True,
         color_discrete_sequence= ["#b27320"],
     )
@@ -244,12 +243,12 @@ def show_home():
         yaxis= dict(
             showgrid= False,
             showticklabels= False,
-            title= None),
-        title_font_color= "#752F05" 
+            title= None) 
     )
     
-    col= st.columns(1)[0]
-    col.plotly_chart(yearly_sales_bar, use_container_width= True)
+    with st.container(border= True):
+      st.markdown("#####Yearly Sales Over Time)
+      st.plotly_chart(yearly_sales_bar, use_container_width= True)
     left, right= st.columns(2)
     right.plotly_chart(cat_chart, use_container_width= True)
     left.plotly_chart(region_sales_bar, use_container_width= True)
