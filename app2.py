@@ -245,7 +245,7 @@ def show_home():
             showticklabels= False,
             title= None) 
     )
-  yearly_sales_bar.update_xaxes(
+    yearly_sales_bar.update_xaxes(
     tickmode='linear',  
     dtick=1               
 )
