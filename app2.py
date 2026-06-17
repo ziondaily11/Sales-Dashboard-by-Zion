@@ -10,7 +10,28 @@ import io
 import sys 
 sys.modules['warnings'] = warnings
 #option menu code
-st.markdown('<div id="right-nav-strip">', unsafe_allow_html=True)
+st.markdown(f"""
+<style>
+[data-testid="stAppViewContainer"] > .main {{
+    margin-right: {NAV_WIDTH}px;
+}}
+
+[data-testid="stIframe"] {{
+    position: fixed !important;
+    right: 0;
+    top: 0;
+    height: 100vh !important;
+    width: {NAV_WIDTH}px !important;
+    z-index: 999;
+    margin: 0;
+}}
+
+[data-testid="stIframe"] > iframe {{
+    height: 100vh !important;
+    width: {NAV_WIDTH}px !important;
+}}
+</style>
+""", unsafe_allow_html=True)
 
 selected = option_menu(
         menu_title=None,
