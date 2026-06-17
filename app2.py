@@ -9,11 +9,8 @@ import requests
 import io
 import sys 
 sys.modules['warnings'] = warnings
-
-#sidebar code
-with st.sidebar:
-
-    selected = option_menu(
+#option menu code
+selected = option_menu(
         menu_title=None,
         options=["Home", "Customers", "Marketing", "Graphs"],
         icons=[
