@@ -10,6 +10,12 @@ import io
 import sys 
 sys.modules['warnings'] = warnings
 #option menu code
+import streamlit as st
+from streamlit_option_menu import option_menu
+
+NAV_WIDTH = 180  # px, matches the fixed strip width below
+
+# reserve space on the right so content doesn't render under the fixed strip
 st.markdown(f"""
 <style>
 [data-testid="stAppViewContainer"] > .main {{
@@ -34,72 +40,29 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 selected = option_menu(
-        menu_title=None,
-        options=["Home", "Customers", "Marketing", "Graphs"],
-        icons=[
-            "house-fill",
-            "people-fill",
-            "megaphone-fill",
-            "bar-chart-fill"
-        ],
-        default_index=0,
-        styles={
-            "container": {
-                "padding": "10px",
-                "background-color": "#1e1e2e",
-                "border-radius": "15px"
-            },
-            "icon": {
-                "color": "#22d3ee",
-                "font-size": "26px"
-            },
-            "nav-link": {
-                "font-size": "0px",     # hides text
-                "text-align": "center",
-                "margin": "8px 0",
-                "padding": "18px",
-                "border-radius": "12px",
-            },
-            "nav-link-selected": {
-                "background-color": "#2a2a3d",
-            },
-        }
-    )
-st.markdown("""
-<style>
-div:has(> iframe[title="streamlit_option_menu.option_menu"]) {
-    position: fixed !important;
-    right: 0;
-    top: 0;
-    height: 100vh;
-    width: 70px;
-    z-index: 999;
-}
-</style>
-""", unsafe_allow_html=True)
-
-#stting up metrics x-stics
-st.markdown("""
-        <style>
-            [data-testid="stMetric"] {
-                background-color: #ff4500;
-                border: 1px solid #333;
-                border-radius: 10px;
-                padding: 20px;
-            }
-            [data-testid="stMetricLabel"] {
-                color: #aaaaaa;
-                font-size: 16px;
-            }
-            [data-testid="stMetricValue"] {
-                color: #20b2aa;
-                font-size: 28px;
-            }
-        </style>
-    """, unsafe_allow_html=True)
-st.markdown("""
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-    """, unsafe_allow_html=True)
+    menu_title=None,
+    options=["Home", "Customers", "Marketing", "Graphs"],
+    icons=["house", "people", "megaphone", "bar-chart"],
+    default_index=0,
+    orientation="vertical",
+    styles={
+        "container": {
+            "padding": "0!important",
+            "background-color": "#1a1c29",
+            "height": "100vh",
+        },
+        "icon": {"color": "#00d9ff", "font-size": "18px"},
+        "nav-link": {
+            "font-size": "14px",
+            "text-align": "left",
+            "padding": "14px 16px",
+            "margin": "4px 0px",
+            "color": "white",
+            "--hover-color": "#2a2d3e",
+        },
+        "nav-link-selected": {"background-color": "#2a2d3e"},
+    },
+)
             
     
     
