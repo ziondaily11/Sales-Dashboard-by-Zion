@@ -10,26 +10,19 @@ import io
 import sys 
 sys.modules['warnings'] = warnings
 #option menu code
-import streamlit as st
-from streamlit_option_menu import option_menu
-
-NAV_WIDTH = 90  # px - narrow column since label sits under icon now
+NAV_WIDTH = 90  # px
 
 st.markdown(f"""
 <style>
-[data-testid="stIframe"] {{
+ul.nav.nav-pills {{
     position: fixed !important;
     right: 0;
     top: 0;
     height: 100vh !important;
     width: {NAV_WIDTH}px !important;
     z-index: 999;
-    margin: 0;
-}}
-
-[data-testid="stIframe"] > iframe {{
-    height: 100vh !important;
-    width: {NAV_WIDTH}px !important;
+    flex-direction: column !important;
+    overflow-y: auto;
 }}
 
 [data-testid="stAppViewContainer"] > .main {{
@@ -48,7 +41,6 @@ selected = option_menu(
         "container": {
             "padding": "0!important",
             "background-color": "#1a1c29",
-            "height": "100vh",
         },
         "icon": {
             "color": "#00d9ff",
@@ -70,7 +62,7 @@ selected = option_menu(
         },
         "nav-link-selected": {"background-color": "#2a2d3e"},
     },
-) 
+)
 st.set_page_config(page_title= "Sales Dashbord",
                     page_icon= ":bar_chart:",
                     layout= "wide")
