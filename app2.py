@@ -36,7 +36,7 @@ selected = option_menu(
     options=["Home", "Customers", "Marketing", "Graphs"],
     icons=["house", "people", "megaphone", "bar-chart"],
     default_index=0,
-    orientation="horrizontal",
+    orientation="h",
     styles={
         "container": {
             "padding": "0!important",
