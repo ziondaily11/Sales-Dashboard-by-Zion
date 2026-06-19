@@ -486,8 +486,12 @@ def show_customers():
     )
 
     lef, righ= st.columns(2)
-    lef.plotly_chart(segment_counts_bar)
-    righ.plotly_chart(segment_spend_bar)
+    with lef:
+      with st.container(border= True):
+          st.plotly_chart(segment_counts_bar)
+    with righ:
+      with st.container(border= True)
+         st.plotly_chart(segment_spend_bar)
     lef, rig, middle= st.columns(3)
   
     #tier counts
