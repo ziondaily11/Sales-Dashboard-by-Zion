@@ -441,6 +441,7 @@ def show_customers():
       yaxis= dict(
         title= None,
         showgrid= False,
+        showticklabels= False
       ),
       xaxis= dict(
         title= None)
