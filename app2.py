@@ -324,7 +324,7 @@ def load_data(customers_dt):
     segment_counts= unique_customers["customer_segment"].value_counts()
     segment_spend= (
       customers_dt.groupby(
-        by= customers_dt["customer_segment"])[["net_sales"]]
+        by= customers_dt["customer_segment"])[["customer_lifetime_value"]]
       .sum()
       .round(2)
       .reset_index()
