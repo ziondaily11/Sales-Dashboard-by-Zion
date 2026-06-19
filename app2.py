@@ -447,7 +447,7 @@ def show_customers():
       segment_counts,
       x= customer_segment,
       y= unique_customers,
-      text= "mark"
+      text= "mark",
       title="<b> Sgement Population</b>",
       color_discrete_sequence= ["#4D82D1"]
     )
