@@ -510,7 +510,7 @@ def show_customers():
         
         paper_bgcolor="rgba(0, 0, 0, 0)",
         font_color="white",
-        title_font_color="4D60D1"
+        title_font_color="#4D60D1"
     )
     age_group_count_pie= go.Figure(go.Pie(
         labels= age_group_count.index,
@@ -536,7 +536,7 @@ def show_customers():
         
         paper_bgcolor="rgba(0, 0, 0, 0)",
         font_color="white",
-        title_font_color="4D60D1"
+        title_font_color="#4D60D1"
     )
 
     #bar
@@ -549,7 +549,7 @@ def show_customers():
         color_discrete_sequence= ["#58BDC6"]
         )
     tier_bar.update_layout(
-        title_font_color= "4D60D1",
+        title_font_color= "#4D60D1",
         showlegend= False,
         xaxis= dict(
         showticklabels= False,
