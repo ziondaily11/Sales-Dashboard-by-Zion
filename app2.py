@@ -321,8 +321,8 @@ def load_data(customers_dt):
     #Gnder distribution
   
     #customer segment distribution analysis
-    segment_counts= unique_customers["customer_segment"].value_counts().reset_index()
-    segment_counts["mark"]= segment_counts["count"].apply(format_number)
+    segment_counts= unique_customers["customer_segment"].value_counts()
+    segment_counts["mark"]= segment_counts.apply(format_number)
     segment_spend= (
       customers_dt.groupby(
         by= customers_dt["customer_segment"])[["customer_lifetime_value"]]
@@ -444,9 +444,8 @@ def show_customers():
 
 
     segment_counts_bar= px.bar(
-      segment_counts,
-      x= customer_segment,
-      y= count,
+      x= segment_counts.index,
+      y= segment_counts.values,
       text= "mark",
       title="<b> Sgement Population</b>",
       color_discrete_sequence= ["#4D82D1"]
