@@ -322,7 +322,7 @@ def load_data(customers_dt):
   
     #customer segment distribution analysis
     segment_counts= unique_customers["customer_segment"].value_counts()
-    segment_counts["mark"]= segment_counts.apply(format_number)
+    mark= segment_counts.apply(format_number).values
     segment_spend= (
       customers_dt.groupby(
         by= customers_dt["customer_segment"])[["customer_lifetime_value"]]
@@ -371,7 +371,8 @@ def load_data(customers_dt):
            other,
            age_group_count,
            segment_counts,
-           segment_spend
+           segment_spend,
+           mark
 
     )
 @st.cache_data                                                       
@@ -391,7 +392,8 @@ def show_customers():
            other,
            age_group_count,
            segment_counts,
-           segment_spend
+           segment_spend,
+           mark
 
 
     )= load_data(customers_dt)
@@ -446,7 +448,7 @@ def show_customers():
     segment_counts_bar= px.bar(
       x= segment_counts.index,
       y= segment_counts.values,
-      text= "mark",
+      text= mark,
       title="<b> Sgement Population</b>",
       color_discrete_sequence= ["#4D82D1"]
     )
