@@ -484,7 +484,7 @@ def show_customers():
       xaxis= dict(
         title= None)
     )
-
+    st.markdown("#")
     lef, righ= st.columns(2)
     with lef:
       with st.container(border= True):
