@@ -490,7 +490,7 @@ def show_customers():
       with st.container(border= True):
           st.plotly_chart(segment_counts_bar)
     with righ:
-      with st.container(border= True)
+      with st.container(border= True):
          st.plotly_chart(segment_spend_bar)
     lef, rig, middle= st.columns(3)
   
