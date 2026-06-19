@@ -494,7 +494,7 @@ def show_customers():
         y= "loyalty_tier",
         orientation="h",
         title= "<b> Spend on Different Tiers📊</b>",
-        color_discrete_sequence= ["#ff0026"]
+        color_discrete_sequence= ["#5886C6"]
         )
     tier_bar.update_layout(
         title_font_color= "green",
