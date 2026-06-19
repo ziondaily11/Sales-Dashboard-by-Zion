@@ -506,12 +506,15 @@ def show_customers():
         showticklabels= True,
         )
     )
-    with rig:
-     st.plotly_chart(tier_bar, use_container_width= True)
-    with lef:
-      st.plotly_chart(pie_tier, use_container_width= True)
-    with middle:
-        st.plotly_chart(age_group_count_pie, use_container_width= True)
+    with st.container(border= True):
+      with rig:
+       st.plotly_chart(tier_bar, use_container_width= True)
+    with st.container(border= True):
+      with lef:
+        st.plotly_chart(pie_tier, use_container_width= True)
+    with st.container(border= True):
+      with middle:
+          st.plotly_chart(age_group_count_pie, use_container_width= True)
     
     st.markdown(f"""
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
