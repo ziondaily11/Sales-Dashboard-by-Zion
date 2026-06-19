@@ -459,7 +459,7 @@ def show_customers():
     segment_spend_bar= px.bar(
      segment_spend,
      x= "customer_segment",
-     y= "net_sales")
+     y= "customer_lifetime_value")
 
     lef, righ= st.columns(2)
     lef.plotly_chart(segment_counts_bar)
