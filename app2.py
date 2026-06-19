@@ -328,6 +328,7 @@ def load_data(customers_dt):
         by= customers_dt["customer_segment"])[["customer_lifetime_value"]]
       .sum()
       .round(2)
+      .sort_values(by= "customer_lifetime_value", ascending= True)
       .reset_index()
     )
     segment_spend["label"]= segment_spend["customer_lifetime_value"].apply(format_number)
