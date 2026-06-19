@@ -254,17 +254,17 @@ def show_home():
     dtick=1               
 )
     
-left, right, far_right= st.columns(3) 
-with st.container(border= True):
-   with left:
-      st.markdown("##### Yearly Sales Over Time")
-      st.plotly_chart(yearly_sales_bar, use_container_width= True)
-with st.container(border= True):
-   with right:
-        st.plotly_chart(cat_chart, use_container_width= True)
-with st.container(border= True):
-   with right:
-    st.plotly_chart(region_sales_bar, use_container_width= True)
+    left, right, far_right= st.columns(3) 
+    with st.container(border= True):
+       with left:
+          st.markdown("##### Yearly Sales Over Time")
+          st.plotly_chart(yearly_sales_bar)
+    with st.container(border= True):
+       with right:
+            st.plotly_chart(cat_chart)
+    with st.container(border= True):
+       with right:
+        st.plotly_chart(region_sales_bar)
   
       
     st.dataframe(df.head(101))
