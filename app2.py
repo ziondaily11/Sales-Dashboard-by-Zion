@@ -319,7 +319,9 @@ def load_data(customers_dt):
         by=customers_dt["loyalty_tier"])[["customer_lifetime_value"]].sum().reset_index()
         )
     #Gnder distribution
-    
+  
+    #customer segment distribution analysis
+    segment_counts= unique_customers["customer_segment"].value_counts()
     man_count=(unique_customers["gender"]=="Male").sum()
     woman_count= (unique_customers["gender"]=="Female").sum()
     male_pct = round(man_count*100/total_customers, 1)
@@ -358,7 +360,8 @@ def load_data(customers_dt):
            male_pct,
            female_pct,
            other,
-           age_group_count
+           age_group_count,
+           segment_counts
 
     )
 @st.cache_data                                                       
@@ -376,7 +379,8 @@ def show_customers():
            male_pct,
            female_pct,
            other,
-           age_group_count
+           age_group_count,
+           segment_counts
 
 
     )= load_data(customers_dt)
@@ -426,7 +430,14 @@ def show_customers():
                 <p style="font-size:30px; font-weight:bold; margin-bottom:4px;">{total_customers}👥 </p>
             </div>
         """, unsafe_allow_html=True)
+
+
+    segment_counts_bar= px.bar(
+      x= segment_counts.index,
+      y= segment_counts.values)
+    st.plotly_chart(segment_counts_bar)
     lef, rig, middle= st.columns(3)
+  
     #tier counts
     
     #pie for tier distribution
