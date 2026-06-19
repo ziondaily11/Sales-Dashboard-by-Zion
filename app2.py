@@ -322,7 +322,7 @@ def load_data(customers_dt):
   
     #customer segment distribution analysis
     segment_counts= unique_customers["customer_segment"].value_counts().reset_index()
-    segment_counts["mark"]= unique_customers.apply(format_number)
+    segment_counts["mark"]= segment_counts["count"].apply(format_number)
     segment_spend= (
       customers_dt.groupby(
         by= customers_dt["customer_segment"])[["customer_lifetime_value"]]
