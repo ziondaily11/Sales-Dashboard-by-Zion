@@ -38,6 +38,10 @@ selected = option_menu(
 def download_csv(pub_url):
     response = requests.get(pub_url)
     return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
+st.markdown("""
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+""", unsafe_allow_html=True)
+        
 
 @st.cache_data
 def excel_store():
