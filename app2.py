@@ -233,8 +233,8 @@ def show_home():
         x= "year",
         y="net_sales",
         markers= True,
-        title= "<b> Yearly Sales Over Time</b>,
-        color_discrete_sequence= [["#AB4A0E"],
+        title= "<b> Yearly Sales Over Time</b>",
+        color_discrete_sequence= ["#AB4A0E"],
     )
     yearly_sales_bar.update_traces(
         line_shape= "spline"
