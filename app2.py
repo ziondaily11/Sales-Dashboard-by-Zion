@@ -444,7 +444,8 @@ def show_customers():
     segment_counts_bar= px.bar(
       x= segment_counts.index,
       y= segment_counts.values,
-      title="<b> Sgement Population</b>"
+      title="<b> Sgement Population</b>",
+      color_discrete_sequence= ["#4D82D1"]
     )
     segment_counts_bar.update_layout(
       yaxis= dict(
@@ -459,7 +460,19 @@ def show_customers():
     segment_spend_bar= px.bar(
      segment_spend,
      x= "customer_segment",
-     y= "customer_lifetime_value")
+     y= "customer_lifetime_value",
+     title= "<b>Segment Spending</b>",
+     color_discrete_sequence= ["#49D498"])
+  
+    segment_spend_bar.update_layout(
+      yaxis= dict(
+        title= None,
+        showgrid= False,
+        showticklabels= False
+      ),
+      xaxis= dict(
+        title= None)
+    )
 
     lef, righ= st.columns(2)
     lef.plotly_chart(segment_counts_bar)
