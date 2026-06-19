@@ -329,6 +329,7 @@ def load_data(customers_dt):
       .round(2)
       .reset_index()
     )
+    segment_spend["label"]= segment_spend["customer_lifetime_value"].apply(format_number)
     man_count=(unique_customers["gender"]=="Male").sum()
     woman_count= (unique_customers["gender"]=="Female").sum()
     male_pct = round(man_count*100/total_customers, 1)
@@ -461,11 +462,13 @@ def show_customers():
      segment_spend,
      x= "customer_segment",
      y= "customer_lifetime_value",
-     text= "customer_lifetime_value",
+     text= "label",
      title= "<b>Segment Spending</b>",
      color_discrete_sequence= ["#49D498"])
     segment_spend_bar.update_traces(
       textposition= "outside")
+
+  
     segment_spend_bar.update_layout(
       yaxis= dict(
         title= None,
