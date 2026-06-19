@@ -263,7 +263,7 @@ def show_home():
        with right:
             st.plotly_chart(cat_chart)
     with st.container(border= True):
-       with right:
+       with far_right:
         st.plotly_chart(region_sales_bar)
   
       
