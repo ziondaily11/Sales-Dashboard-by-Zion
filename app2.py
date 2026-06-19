@@ -434,7 +434,21 @@ def show_customers():
 
     segment_counts_bar= px.bar(
       x= segment_counts.index,
-      y= segment_counts.values)
+      y= segment_counts.values,
+      title="<b> Sgement Population</b>"
+    )
+    segment_counts_bar.update_layout(
+      yaxis= dict(
+        title= None,
+        showgrid= False,
+      ),
+      xaxis= dict(
+        title= None)
+    )
+
+
+
+  
     st.plotly_chart(segment_counts_bar)
     lef, rig, middle= st.columns(3)
   
