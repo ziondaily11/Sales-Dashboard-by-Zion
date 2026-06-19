@@ -212,7 +212,7 @@ def show_home():
         y= "region",
         orientation="h",
         title= "<b> Sales per Region</b>",
-        color_discrete_sequence=["#ff4500"]
+        color_discrete_sequence=[["#AB4A0E"]
         
         
     )
@@ -233,7 +233,8 @@ def show_home():
         x= "year",
         y="net_sales",
         markers= True,
-        color_discrete_sequence= ["#b27320"],
+        title= "<b> Yearly Sales Over Time</b>,
+        color_discrete_sequence= [["#AB4A0E"],
     )
     yearly_sales_bar.update_traces(
         line_shape= "spline"
@@ -247,7 +248,8 @@ def show_home():
         yaxis= dict(
             showgrid= False,
             showticklabels= False,
-            title= None) 
+            title= None),
+       title_font_color= "#AB4A0E"
     )
     yearly_sales_bar.update_xaxes(
     tickmode='linear',  
@@ -257,7 +259,6 @@ def show_home():
     left, right, far_right= st.columns(3)
     with left:
       with st.container(border= True):
-        st.markdown("##### Yearly Sales Over Time")
         st.plotly_chart(yearly_sales_bar)
     with right:
       with st.container(border= True):
