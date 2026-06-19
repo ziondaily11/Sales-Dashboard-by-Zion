@@ -322,6 +322,13 @@ def load_data(customers_dt):
   
     #customer segment distribution analysis
     segment_counts= unique_customers["customer_segment"].value_counts()
+    segment_spend= (
+      customers_dt.groupby(
+        by= customer_dt["customer_segment"])[["net_sales"]]
+      .sum()
+      .round(2)
+      .reset_index()
+    )
     man_count=(unique_customers["gender"]=="Male").sum()
     woman_count= (unique_customers["gender"]=="Female").sum()
     male_pct = round(man_count*100/total_customers, 1)
@@ -361,7 +368,8 @@ def load_data(customers_dt):
            female_pct,
            other,
            age_group_count,
-           segment_counts
+           segment_counts,
+           segment_spend
 
     )
 @st.cache_data                                                       
@@ -380,7 +388,8 @@ def show_customers():
            female_pct,
            other,
            age_group_count,
-           segment_counts
+           segment_counts,
+           segment_spend
 
 
     )= load_data(customers_dt)
@@ -447,10 +456,14 @@ def show_customers():
         title= None)
     )
 
+    segment_spend_bar= px.bar(
+     segment_spend,
+     x= "customer_segment",
+     y= "net_sales")
 
-
-  
-    st.plotly_chart(segment_counts_bar)
+    lef, righ= st.columns(2)
+    lef.plotly_chart(segment_counts_bar)
+    righ.plotly_chart(segment_spend_bar)
     lef, rig, middle= st.columns(3)
   
     #tier counts
