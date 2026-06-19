@@ -444,7 +444,7 @@ def show_customers():
 
 
     segment_counts_bar= px.bar(
-      segment_counts
+      segment_counts,
       x= customer_segment,
       y= unique_customers,
       text= "mark"
