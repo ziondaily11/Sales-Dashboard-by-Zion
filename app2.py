@@ -254,7 +254,7 @@ def show_home():
     dtick=1               
 )
     
-  left, right, far_right= st.columns(3) 
+left, right, far_right= st.columns(3) 
 with st.container(border= True):
    with left:
       st.markdown("##### Yearly Sales Over Time")
