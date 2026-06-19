@@ -212,7 +212,7 @@ def show_home():
         y= "region",
         orientation="h",
         title= "<b> Sales per Region</b>",
-        color_discrete_sequence=[["#AB4A0E"]
+        color_discrete_sequence=["#AB4A0E"]
         
         
     )
