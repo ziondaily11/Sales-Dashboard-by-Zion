@@ -461,9 +461,11 @@ def show_customers():
      segment_spend,
      x= "customer_segment",
      y= "customer_lifetime_value",
+     text= "customer_lifetime_value",
      title= "<b>Segment Spending</b>",
      color_discrete_sequence= ["#49D498"])
-  
+    segment_spend_bar.update_traces(
+      textposition= "outside")
     segment_spend_bar.update_layout(
       yaxis= dict(
         title= None,
