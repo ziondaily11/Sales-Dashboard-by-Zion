@@ -47,11 +47,9 @@ def download_csv(pub_url, timeout= 30):
 def excel_store():
     orders_dt = download_csv(
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6RYGTdLCVG45nqXIeXW0zfH0T3f1OivuPbDa2VhiommrcY2ePm5eWydX-RTmF4ljukwOdmSFl-MLU/pub?output=csv")
-    dt1= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRTjMlwObm4-Ia_thTRFUzB8fMKx5LVUmPXWFgeE1r55sbZVamiWqbY-0Beh34g9Ikk8sC0DWXN7w2-/pub?output=csv")
-    dt2= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSxAFllc5aCt_IkSdvVGs9v14a9Ete_hMhN3Lks1_Sc2MjYyobKRZrwDIHC025-Eb7fg0CY3x2sf46K/pub?output=csv")
-    order_items_dt = pd.concat(
-    [dt1, dt2],
-    ignore_index=True)
+    order_items_dt= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRTjMlwObm4-Ia_thTRFUzB8fMKx5LVUmPXWFgeE1r55sbZVamiWqbY-0Beh34g9Ikk8sC0DWXN7w2-/pub?output=csv")
+    
+  
 
     products_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQqRDfmfmUQGG0irIAn_ZkhC_iKiRCsMzLVl_s_2Wa0R7ULD6D3TGmKksyYlb1sTbHnYkAn5Pk-6DMg/pub?output=csv")
     dt= pd.merge(
