@@ -46,9 +46,9 @@ def download_csv(pub_url):
 @st.cache_data
 def excel_store():
     orders_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6RYGTdLCVG45nqXIeXW0zfH0T3f1OivuPbDa2VhiommrcY2ePm5eWydX-RTmF4ljukwOdmSFl-MLU/pub?output=csv")
-    order_items_dt= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRuLO8Q7E5zWP7z0NUekrDFBi1ulSlDqmGwTmbYc01dIsdDWRkw7Cwju9_stOAzDLNVqSNZtS8aoLet/pub?gid=2120930077&single=true&output=csv")
-    
-  
+    dt1= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRuLO8Q7E5zWP7z0NUekrDFBi1ulSlDqmGwTmbYc01dIsdDWRkw7Cwju9_stOAzDLNVqSNZtS8aoLet/pub?gid=2120930077&single=true&output=csv")
+    dt2= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSXfYlGKn67nOgmfCG4_8YCQjFuWEEJZyyDRDCJWt1ImXLXKBYnEnVTotK0pvzn0p9cGcy1jLfiNooA/pub?gid=1070054059&single=true&output=csv")
+    order_items_dt=pd.concat([dt1, dt2], ignore_index= True)
 
     products_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQqRDfmfmUQGG0irIAn_ZkhC_iKiRCsMzLVl_s_2Wa0R7ULD6D3TGmKksyYlb1sTbHnYkAn5Pk-6DMg/pub?output=csv")
     dt= pd.merge(
@@ -56,8 +56,7 @@ def excel_store():
         order_items_dt,
         on= "order_id",
         how= "left")
-    st.write("products_dt columns:", products_dt.columns.tolist())
-    st.write("dt columns:", dt.columns.tolist())
+    
     df= pd.merge(
             products_dt,
             dt,
