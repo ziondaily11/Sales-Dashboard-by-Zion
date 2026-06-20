@@ -194,7 +194,7 @@ def show_home():
         x=profit_per_category["net_sales"],
         title= "<b>Sales by Category</b>",
         orientation= "h",
-        text=  profit_per_category["mark"],
+        #text=  profit_per_category["mark"],
         color_discrete_sequence= ["#AB4A0E"]
     )
     
@@ -224,9 +224,9 @@ def show_home():
     
     region_sales_bar= px.bar(
         sales_per_region,
-        x= "net_sales",
-        y= "region",
-        orientation="h",
+        y= "net_sales",
+        x= "region",
+        #orientation="h",
         title= "<b> Sales per Region</b>",
         color_discrete_sequence=["#AB4A0E"]
         
@@ -237,7 +237,7 @@ def show_home():
         font_color="white",
         title_font_color="#752F05" ,
         xaxis= dict(
-            title= "Sales"
+            title=None
 
         )
         
