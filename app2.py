@@ -139,7 +139,14 @@ def show_home():
         sales_per_year,
         unique_products
     ) = store_2(df)
-   
+    def format_number(num):
+        if num >= 1_000_000_000:
+            return f"{num/1_000_000_000:.1f}B"
+        elif num >= 1_000_000:
+            return f"{num/1_000_000:.1f}M"
+        elif num >= 1_000:
+            return f"{num/1_000:.1f}K"
+        return str(num)
     st.markdown("""
         <h1 style="color: #20b2aa; font-family: Courier New, monospace; 
                 font-size:36px">
