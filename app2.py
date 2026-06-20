@@ -175,7 +175,7 @@ def show_home():
     with far_right:
         st.metric(label="Total Orders", value=format_number(delivered_orders) )
     with far:
-        st.metric(label= "Total Producs", value= format_number(unique_products))
+        st.metric(label= "Total Products", value= format_number(unique_products))
     # Filter out tiny slices before plotting
     
 
@@ -192,9 +192,14 @@ def show_home():
 
     cat_chart.update_layout(
         xaxis= dict(
-            showgrid= False
-            
+            showgrid= False,
+            title= None,
+            showticklabels= False
         ),
+        yaxis= dict(
+          showgrid= False,
+          title= None,
+          showticklabels= False),
         plot_bgcolor= "rgba(0, 0, 0, 0)",
         showlegend= False,
         paper_bgcolor="rgba(0, 0, 0, 0)",
