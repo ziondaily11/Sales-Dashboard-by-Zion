@@ -227,7 +227,7 @@ def show_home():
         sales_per_region,
         y= "net_sales",
         x= "region",
-        title= "mark",
+        text= "mark",
         #orientation="h",
         title= "<b> Sales per Region</b>",
         color_discrete_sequence=["#AB4A0E"]
