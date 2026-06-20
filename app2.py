@@ -44,7 +44,7 @@ st.markdown("""
         
 
 @st.cache_data
-def excel_store(ttl= 1):
+def excel_store(ttl= 300):
     orders_dt = download_csv(
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6RYGTdLCVG45nqXIeXW0zfH0T3f1OivuPbDa2VhiommrcY2ePm5eWydX-RTmF4ljukwOdmSFl-MLU/pub?output=csv")
     dt1= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRTjMlwObm4-Ia_thTRFUzB8fMKx5LVUmPXWFgeE1r55sbZVamiWqbY-0Beh34g9Ikk8sC0DWXN7w2-/pub?output=csv")
