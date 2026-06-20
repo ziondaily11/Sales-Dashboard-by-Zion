@@ -54,9 +54,10 @@ def excel_store():
     dt5= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4JwkjddboJQVu95mkC02VNnGqlnpKG7p9j3GmkBpTcRYT66mH_BdLNVkg3WcNBSfMiQHlnkQGvBS2/pub?output=csv")
     dt6= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSeJN3ZaybBsnrRmCg1nw7cQZb993JDIcqZBNuYXxspENNcIcMbpqozDFVwL3GytDxyC3ldQdrau71A/pub?output=csv")
     dt7= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT9a4rUWHGTTAD8ewchgTSsmj-K2YZhZZVbCjE1n9MYTH_qfj1VvMWiAUfiKFJRcpWABzcXQwx9RYc4/pub?output=csv")
-    dts= [dt1, dt2.iloc[1:], dt3.iloc[1:], dt4.iloc[1:], dt5.iloc[1:], dt6.iloc[1:], dt7.iloc[1:]]
-    order_items_dt= pd.concat(dts, ignore_index= True)
-    
+    order_items_dt = pd.concat(
+    [dt1, dt2, dt3, dt4, dt5, dt6, dt7],
+    ignore_index=True
+)
     products_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQqRDfmfmUQGG0irIAn_ZkhC_iKiRCsMzLVl_s_2Wa0R7ULD6D3TGmKksyYlb1sTbHnYkAn5Pk-6DMg/pub?output=csv")
     dt= pd.merge(
         orders_dt,
