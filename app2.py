@@ -87,7 +87,7 @@ def store_2(df):
     profit_per_category = profit_per_category[
         profit_per_category["net_sales"] / profit_per_category["net_sales"].sum() > 0.01
     ]
-     profit_per_category["mark"]=  profit_per_category["net_sales"].apply(format_number) 
+    profit_per_category["mark"]=  profit_per_category["net_sales"].apply(format_number) 
     #Sales per year
     df["order_date"]= pd.to_datetime(df["order_date"])
     df["year"]= df["order_date"].dt.year
