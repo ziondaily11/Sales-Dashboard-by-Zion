@@ -40,7 +40,7 @@ st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 """, unsafe_allow_html=True)
         
-def download_csv(pub_url):
+def download_csv(pub_url, timeout= 30):
     response = requests.get(pub_url)
     return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
 @st.cache_data(ttl= 300)
