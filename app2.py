@@ -35,16 +35,22 @@ selected = option_menu(
 )
 
     
-def download_csv(pub_url):
-    response = requests.get(pub_url)
-    return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
+
 st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 """, unsafe_allow_html=True)
         
-
-@st.cache_data
-def excel_store(ttl= 300):
+def download_csv(pub_url, timeout=10):
+    try:
+        response = requests.get(pub_url, timeout=timeout)
+        response.raise_for_status()  # raises if status is 4xx/5xx
+        return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
+    except requests.exceptions.RequestException as e:
+        raise RuntimeError(f"Failed to download CSV from {pub_url}: {e}")
+    except pd.errors.ParserError as e:
+        raise RuntimeError(f"Failed to parse CSV from {pub_url}: {e}")
+@st.cache_data(ttl= 300)
+def excel_store():
     orders_dt = download_csv(
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6RYGTdLCVG45nqXIeXW0zfH0T3f1OivuPbDa2VhiommrcY2ePm5eWydX-RTmF4ljukwOdmSFl-MLU/pub?output=csv")
     dt1= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRTjMlwObm4-Ia_thTRFUzB8fMKx5LVUmPXWFgeE1r55sbZVamiWqbY-0Beh34g9Ikk8sC0DWXN7w2-/pub?output=csv")
