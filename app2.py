@@ -56,7 +56,8 @@ def excel_store():
         order_items_dt,
         on= "order_id",
         how= "left")
-    
+    st.write("products_dt columns:", products_dt.columns.tolist())
+    st.write("dt columns:", dt.columns.tolist())
     df= pd.merge(
             products_dt,
             dt,
