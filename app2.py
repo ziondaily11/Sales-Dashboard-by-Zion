@@ -243,7 +243,7 @@ def show_home():
         yaxis= dict(
           title= None,
           showgrid= False,
-          showticklabels= False)
+          showticklabels= False))
     region_sales_bar.update_traces(
         textposition= "outside")
     
