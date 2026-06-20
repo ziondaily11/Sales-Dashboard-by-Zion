@@ -40,10 +40,10 @@ st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 """, unsafe_allow_html=True)
         
-def download_csv(pub_url, timeout= 30):
+def download_csv(pub_url):
     response = requests.get(pub_url)
     return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
-@st.cache_data(ttl= 300)
+@st.cache_data
 def excel_store():
     orders_dt = download_csv(
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6RYGTdLCVG45nqXIeXW0zfH0T3f1OivuPbDa2VhiommrcY2ePm5eWydX-RTmF4ljukwOdmSFl-MLU/pub?output=csv")
