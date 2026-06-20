@@ -44,7 +44,7 @@ st.markdown("""
         
 
 @st.cache_data
-def excel_store():
+def excel_store(ttl= 1):
     orders_dt = download_csv(
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6RYGTdLCVG45nqXIeXW0zfH0T3f1OivuPbDa2VhiommrcY2ePm5eWydX-RTmF4ljukwOdmSFl-MLU/pub?output=csv")
     dt1= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRTjMlwObm4-Ia_thTRFUzB8fMKx5LVUmPXWFgeE1r55sbZVamiWqbY-0Beh34g9Ikk8sC0DWXN7w2-/pub?output=csv")
@@ -56,8 +56,8 @@ def excel_store():
     dt7= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT9a4rUWHGTTAD8ewchgTSsmj-K2YZhZZVbCjE1n9MYTH_qfj1VvMWiAUfiKFJRcpWABzcXQwx9RYc4/pub?output=csv")
     order_items_dt = pd.concat(
     [dt1, dt2, dt3, dt4, dt5, dt6, dt7],
-    ignore_index=True
-)
+    ignore_index=True)
+
     products_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQqRDfmfmUQGG0irIAn_ZkhC_iKiRCsMzLVl_s_2Wa0R7ULD6D3TGmKksyYlb1sTbHnYkAn5Pk-6DMg/pub?output=csv")
     dt= pd.merge(
         orders_dt,
