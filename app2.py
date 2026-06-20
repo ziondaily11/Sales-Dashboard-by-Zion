@@ -48,18 +48,11 @@ def excel_store():
     orders_dt = download_csv(
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6RYGTdLCVG45nqXIeXW0zfH0T3f1OivuPbDa2VhiommrcY2ePm5eWydX-RTmF4ljukwOdmSFl-MLU/pub?output=csv")
     dt1= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRTjMlwObm4-Ia_thTRFUzB8fMKx5LVUmPXWFgeE1r55sbZVamiWqbY-0Beh34g9Ikk8sC0DWXN7w2-/pub?output=csv")
-    dt2= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSxAFllc5aCt_IkSdvVGs9v14a9Ete_hMhN3Lks1_Sc2MjYyobKRZrwDIHC025-Eb7fg0CY3x2sf46K/pub?output=csv")
-    dt3= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT7tmZxc58M78Cm-dJEQatLBQutUwfDaMos6PeCv2upRkQ1FiY8mdDxbdssO6onrV8QVE0g4fkY1Y6D/pub?output=csv")
-    dt4= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vStJM_r0lhgNrsR2Ji87zWlhK37B_SvTSKrDdO4hWQheHvW1SQh4sQAYQiTWa26jrWCvvodK22uyoQC/pub?output=csv")
-    dt5= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4JwkjddboJQVu95mkC02VNnGqlnpKG7p9j3GmkBpTcRYT66mH_BdLNVkg3WcNBSfMiQHlnkQGvBS2/pub?output=csv")
-    dt6= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSeJN3ZaybBsnrRmCg1nw7cQZb993JDIcqZBNuYXxspENNcIcMbpqozDFVwL3GytDxyC3ldQdrau71A/pub?output=csv")
-    dt7= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT9a4rUWHGTTAD8ewchgTSsmj-K2YZhZZVbCjE1n9MYTH_qfj1VvMWiAUfiKFJRcpWABzcXQwx9RYc4/pub?output=csv")
-    dts= [dt1, dt2.iloc[1:], dt3.iloc[1:], dt4.iloc[1:], dt5.iloc[1:], dt6.iloc[1:], dt7.iloc[1:]]
-    order_items_dt= pd.concat(dts, ignore_index= True)
+    
     products_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQqRDfmfmUQGG0irIAn_ZkhC_iKiRCsMzLVl_s_2Wa0R7ULD6D3TGmKksyYlb1sTbHnYkAn5Pk-6DMg/pub?output=csv")
     dt= pd.merge(
         orders_dt,
-        order_items_dt,
+        dt1,
         on= "order_id",
         how= "left")
     
