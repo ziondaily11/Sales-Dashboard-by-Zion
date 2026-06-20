@@ -41,9 +41,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
         
 def download_csv(pub_url, timeout=10):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+    }
     try:
-        response = requests.get(pub_url, timeout=timeout)
-        response.raise_for_status()  # raises if status is 4xx/5xx
+        response = requests.get(pub_url, timeout=timeout, headers=headers)
+        response.raise_for_status()
         return pd.read_csv(io.StringIO(response.content.decode("utf-8")))
     except requests.exceptions.RequestException as e:
         raise RuntimeError(f"Failed to download CSV from {pub_url}: {e}")
