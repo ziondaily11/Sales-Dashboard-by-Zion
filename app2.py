@@ -109,6 +109,7 @@ def store_2(df):
         .sum()
         .reset_index()
     )
+    sales_per_region["mark"]= sales_per_region["net_sales"].apply(format_number)
     #product count
     unique_products= df["product_id"].nunique()
     
@@ -226,6 +227,7 @@ def show_home():
         sales_per_region,
         y= "net_sales",
         x= "region",
+        title= "mark",
         #orientation="h",
         title= "<b> Sales per Region</b>",
         color_discrete_sequence=["#AB4A0E"]
@@ -237,11 +239,13 @@ def show_home():
         font_color="white",
         title_font_color="#752F05" ,
         xaxis= dict(
-            title=None
-
-        )
-        
-    )
+            title=None),
+        yaxis= dict(
+          title= None,
+          showgrid= False,
+          showticklabels= False)
+    region_sales_bar.update_traces(
+        textposition= "outside")
     
     #sales Per year line graph
     yearly_sales_bar= px.line(
