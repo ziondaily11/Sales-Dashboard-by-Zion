@@ -205,8 +205,8 @@ def show_home():
     cat_chart.update_layout(
         xaxis= dict(
             showgrid= False,
-            title= None,
-            showticklabels= False
+            title= None
+            
         ),
         yaxis= dict(
           showgrid= False,
