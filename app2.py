@@ -87,6 +87,7 @@ def store_2(df):
     profit_per_category = profit_per_category[
         profit_per_category["net_sales"] / profit_per_category["net_sales"].sum() > 0.01
     ]
+     profit_per_category["mark"]=  profit_per_category["net_sales"].apply(format_number) 
     #Sales per year
     df["order_date"]= pd.to_datetime(df["order_date"])
     df["year"]= df["order_date"].dt.year
@@ -185,11 +186,13 @@ def show_home():
         x=profit_per_category["net_sales"],
         title= "<b>Sales by Category</b>",
         orientation= "h",
+        text=  profit_per_category["mark"],
         color_discrete_sequence= ["#AB4A0E"]
     )
     
 
-
+    cat_chart.update_traces(
+      textposition= "outside")
     cat_chart.update_layout(
         xaxis= dict(
             showgrid= False,
@@ -199,7 +202,7 @@ def show_home():
         yaxis= dict(
           showgrid= False,
           title= None,
-          showticklabels= False),
+          ),
         plot_bgcolor= "rgba(0, 0, 0, 0)",
         showlegend= False,
         paper_bgcolor="rgba(0, 0, 0, 0)",
