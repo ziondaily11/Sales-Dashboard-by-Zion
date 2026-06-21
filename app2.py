@@ -132,7 +132,7 @@ def store_2(df):
     completed=("order_status", lambda x: (x == "Delivered").count()),
     returned=("order_status", lambda x: -(x == "Returned").count())  
 ).reset_index()
-    
+    st.dataframe(dt_comb)
     return (
         total_sales,
         total_profit,
@@ -398,7 +398,7 @@ def show_home():
           st.plotly_chart(region_sales_bar)
         with st.container(border= True):
             st.plotly_chart(ret_ag_del)
-   st.dataframe(dt_comb)
+   
 
     
     
