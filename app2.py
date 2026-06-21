@@ -295,6 +295,9 @@ def show_home():
             title= None),
        title_font_color= "#AB4A0E"
     )
+    yearly_sales_bar.update_traces(
+        shape= "spline"
+    )
     yearly_sales_bar.update_xaxes(
     tickmode='linear',  
     dtick=1               
