@@ -383,7 +383,7 @@ def show_home():
             showticklabels= False
         ),
         xaxis= dict(
-            title= None
+            title= None,
             showgrid= False
         )
     )
