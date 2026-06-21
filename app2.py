@@ -244,6 +244,7 @@ def show_home():
     )
 
     region_sales_bar.update_layout(
+        margin= dict(t= 40, b= 10, l= 10, r= 10),
         font_color="white",
         title_font_color="#752F05" ,
         xaxis= dict(
@@ -268,6 +269,7 @@ def show_home():
         line_shape= "spline"
     )
     yearly_sales_bar.update_layout(
+        margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
             range= [2020, 2024],
             showgrid= False,
