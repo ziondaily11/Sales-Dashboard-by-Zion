@@ -326,7 +326,8 @@ def show_home():
     )
     orders_heat.update_layout(
         height= 200,
-         margin= dict(t= 40, b= 10, l= 10, r= 10),
+        title_font_color= "#AB4A0E",
+        margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
             title= None
         ),
