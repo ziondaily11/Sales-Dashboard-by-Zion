@@ -368,7 +368,7 @@ def show_home():
         barmode= "group",
         color_discrete_map={
             "completed": "#e8622a",
-             "returned": "3a9ad9"
+             "returned": "#3a9ad9"
         }
     )
     
