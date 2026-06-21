@@ -3,6 +3,7 @@ import streamlit as st
 import plotly_express as px
 import matplotlib
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 from streamlit_option_menu import option_menu
 import warnings
 import requests
