@@ -126,7 +126,8 @@ def store_2(df):
     unique_products= df["product_id"].nunique()
     dt_pivot= df.groupby(by= ["region", "year"])[["order_id"]].count().unstack()
     dt_pivot.columns.name= None
-    
+    dt_pivot.columns= dt_pivot.columns.astype(int)
+    dt_pivot_norm= dt_pivot.div(dt_pivot.max(axis= 1), axis= 0)
          
     return (
         total_sales,
@@ -141,7 +142,7 @@ def store_2(df):
         min_year,
         min_sales,
         max_sales,
-        dt_pivot
+        dt_pivot_norm
     )
     #st.title(":bar_chart: Sales Dashboard")
 
@@ -162,7 +163,7 @@ def show_home():
         min_year,
         max_sales,
         min_sales,
-        dt_pivot
+        dt_pivot_norm
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
@@ -319,7 +320,7 @@ def show_home():
 )
 
     orders_heat= px.imshow(
-        dt_pivot,
+        dt_pivot_norm,
         color_continuous_scale= "Oranges",
         title= "Order Concentration by Region & Year"
     )
