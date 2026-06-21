@@ -128,7 +128,10 @@ def store_2(df):
     dt_pivot.columns.name= None
     dt_pivot.columns= dt_pivot.columns.droplevel(0).astype(int)
     dt_pivot_norm= dt_pivot.div(dt_pivot.max(axis= 1), axis= 0)
-         
+    ##RETURNED, DELIVERRED GOODS COUNT
+    del_counts= df.groupby(by= ["order_status"])[["order_id"]].count().reset_index()
+
+       
     return (
         total_sales,
         total_profit,
@@ -142,7 +145,8 @@ def store_2(df):
         min_year,
         min_sales,
         max_sales,
-        dt_pivot_norm
+        dt_pivot_norm,
+        del_counts
     )
     #st.title(":bar_chart: Sales Dashboard")
 
@@ -163,7 +167,8 @@ def show_home():
         min_year,
         max_sales,
         min_sales,
-        dt_pivot_norm
+        dt_pivot_norm,
+        del_counts
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
@@ -335,6 +340,15 @@ def show_home():
             title= None
         )
     )
+
+    status_pie= go.Figure(go.Pie(
+        del_counts,
+        labels= "order_status",
+        values= "order_id",
+        hole= 0.8,
+        textinfo= "labels",
+        textposition= "outside"
+    ))
     
     
     left, right, far_right= st.columns([2, 1.5, 1.5])
@@ -347,8 +361,11 @@ def show_home():
       with st.container(border= True):
         st.plotly_chart(cat_chart)
     with right:
-       with st.container(border= True):
+        with st.container(border= True):
           st.plotly_chart(region_sales_bar)
+        with st.container(border= True):
+            st.plotly_chart(status_pie)
+
     
     st.dataframe(df.head(101))
 
