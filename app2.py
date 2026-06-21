@@ -391,7 +391,8 @@ def show_home():
     with st.container(border= True):
             st.plotly_chart(ret_ag_del)
     
-    
+    st.write(df["year"].unique())
+    st.write(df["order_status"].unique())
  #customer insights
 @st.cache_data
 def xcl_store():
