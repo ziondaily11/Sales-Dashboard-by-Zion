@@ -257,7 +257,7 @@ def show_home():
     )
 
     region_sales_bar.update_layout(
-        height= 300,
+        height= 250,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         font_color="white",
         title_font_color="#752F05" ,
@@ -318,10 +318,10 @@ def show_home():
     with left:
       with st.container(border= True):
         st.plotly_chart(yearly_sales_bar)
-    with right:
+    with far_right:
       with st.container(border= True):
         st.plotly_chart(cat_chart)
-    with far_right:
+    with right:
        with st.container(border= True):
           st.plotly_chart(region_sales_bar)
       
