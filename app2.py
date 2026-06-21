@@ -347,8 +347,8 @@ def show_home():
         labels= "order_status",
         values= "order_id",
         hole= 0.8,
-        textinfo= "label",
-        textposition= "outside"
+        textinfo= "label"
+        
     ))
     
     
