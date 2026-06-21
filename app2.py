@@ -304,6 +304,7 @@ def show_home():
         fgcolor= "#ff4500"
         bgcolor= "rgba(0, 0, 0, 0)"
     )
+    )
     yearly_sales_bar.update_xaxes(
     tickmode='linear',  
     dtick=1               
