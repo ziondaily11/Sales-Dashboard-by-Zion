@@ -186,12 +186,16 @@ def show_home():
         elif num >= 1_000:
             return f"{num/1_000:.1f}K"
         return str(num)
-    st.markdown("""
-        <h1 style="color: #ff4500; font-family: Courier New, monospace; 
-                font-size:36px">
-            AMAZON SALES DASHBOARD
-        </h1>
-    """, unsafe_allow_html=True)
+    col1, col2 = st.columns([1, 8])
+    with col1:
+            st.image("amazon_logo.png", width=60)
+    with col2:
+            st.markdown("""
+                <h1 style="color: #ff4500; font-family: Courier New, monospace; 
+                        font-size:36px">
+                    AMAZON SALES DASHBOARD
+                </h1>
+            """, unsafe_allow_html=True)
     
     st.markdown("""
         <style>
