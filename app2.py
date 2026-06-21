@@ -350,7 +350,7 @@ def show_home():
         domain= dict(x= [0.1, 0.7], y= [0.1, 0.7])
     ))
     status_pie.update_layout(
-        height= 300,
+        height= 250,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         legend= dict(orientation= "h", y= -0.1)
     )
