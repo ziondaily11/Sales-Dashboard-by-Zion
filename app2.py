@@ -126,7 +126,7 @@ def store_2(df):
     unique_products= df["product_id"].nunique()
     dt_pivot= df.groupby(by= ["region", "year"])[["order_id"]].count().unstack()
     dt_pivot.columns.name= None
-    dt_pivot.columns= dt_pivot.columns.astype(int)
+    dt_pivot.columns= dt_pivot.columns.droplevel(0).astype(int)
     dt_pivot_norm= dt_pivot.div(dt_pivot.max(axis= 1), axis= 0)
          
     return (
