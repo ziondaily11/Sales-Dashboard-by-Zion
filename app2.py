@@ -372,30 +372,24 @@ def show_home():
         legend= dict(orientation= "h", y= -0.1)
     )
     #further  order status analysis
-    ret_ag_del = make_subplots(
-    rows=2, cols=1,
-    shared_xaxes=True,
-    subplot_titles=("Completed Orders", "Returned Orders"),
-    vertical_spacing=0.12
+    ret_ag_del = px.bar(
+    df_comb,
+    x="year",
+    y=["completed", "returned"],
+    title="Completed Vs Returned orders over time",
+    barmode="group",
+    color_discrete_map={
+        "completed": "#3a9ad9",
+        "returned": "#e8622a"
+    }
 )
 
-    ret_ag_del.add_trace(
-        go.Bar(x=df_comb["year"], y=df_comb["completed"], name="completed", marker_color="#3a9ad9"),
-        row=1, col=1
-    )
-    
-    ret_ag_del.add_trace(
-        go.Bar(x=df_comb["year"], y=df_comb["returned"].abs(), name="returned", marker_color="#e8622a"),
-        row=2, col=1
-    )
-    
     ret_ag_del.update_layout(
-        title="Completed Vs Returned orders over time",
-        showlegend=False,
+        yaxis_title="Orders",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        margin=dict(l=0, r=0, t=60, b=0),
-        height=500
+        margin=dict(l=0, r=0, t=40, b=0),
+        legend_title_text=""
     )
     
     ret_ag_del.update_yaxes(showgrid=False, zeroline=False)
