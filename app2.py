@@ -138,6 +138,7 @@ def store_2(df):
     returned=("order_status", lambda x: -(x == "Returned").sum())  
 ).reset_index()
     st.dataframe(df_comb)
+    st.write(df["order_status"].value_counts())
     return (
         total_sales,
         total_profit,
