@@ -350,7 +350,7 @@ def show_home():
         textposition= "outside"
     ))
     status_pie.update_layout(
-        height= 180
+        height= 180,
         showlegend= False
     )
     
