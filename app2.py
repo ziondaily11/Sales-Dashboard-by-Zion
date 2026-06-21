@@ -106,6 +106,8 @@ def store_2(df):
     #Sales per year
     df["order_date"]= pd.to_datetime(df["order_date"])
     df["year"]= df["order_date"].dt.year
+    max_year= df["year"].max()
+    min_year= df["year"].min()
     sales_per_year=(
         df.groupby(by=df["year"])[["net_sales"]]
         .sum()
@@ -129,7 +131,9 @@ def store_2(df):
         profit_per_category,
         sales_per_region,
         sales_per_year,
-        unique_products
+        unique_products,
+        max_year,
+        min_year
     )
     #st.title(":bar_chart: Sales Dashboard")
 
@@ -145,7 +149,9 @@ def show_home():
         profit_per_category,
         sales_per_region,
         sales_per_year,
-        unique_products
+        unique_products,
+        max_year,
+        min_year
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
@@ -270,8 +276,8 @@ def show_home():
     yearly_sales_bar.update_layout(
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
-            tickvals= [2020, 2021, 2022, 2023, 2024],
-            range= [2019.5, 2024.5],
+            tickvals= list(range([min_year, max_year+1])),
+            range= [min_year-0.5, max_year+0.5],
             showgrid= False,
             dtick= 1,
         ),
