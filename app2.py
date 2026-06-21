@@ -130,6 +130,7 @@ def store_2(df):
     dt_pivot.columns= dt_pivot.columns.droplevel(0).astype(int)
     dt_pivot_norm= dt_pivot.div(dt_pivot.max(axis= 1), axis= 0)
     ##RETURNED, DELIVERRED GOODS COUNT
+    df = df[df["order_status"].isin(["Delivered", "Returned", "Shipped", "Cancelled", "Refunded", "Processing"])]
     del_counts= df.groupby(by= ["order_status"])[["order_id"]].count().reset_index()
     df_comb= df.groupby(by= ["year"]).agg(
         completed= ("order_status", lambda x: (x== "Delivered").sum()),
