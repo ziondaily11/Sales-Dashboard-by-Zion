@@ -189,7 +189,7 @@ def show_home():
     st.markdown("""
         <h1 style="color: #20b2aa; font-family: Courier New, monospace; 
                 font-size:36px">
-            📊 Sales Dashboard
+            AMAZON SALES DASHBOARD
         </h1>
     """, unsafe_allow_html=True)
     
