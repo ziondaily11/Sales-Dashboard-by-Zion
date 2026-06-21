@@ -124,6 +124,12 @@ def store_2(df):
     sales_per_region["mark"]= sales_per_region["net_sales"].apply(format_number)
     #product count
     unique_products= df["product_id"].nunique()
+    dt_pivot= df.pivot_table(
+        values= "order_id",
+        index= "region",
+        column= "year",
+        aggfunc= "count"
+    )
     
          
     return (
@@ -138,7 +144,8 @@ def store_2(df):
         max_year,
         min_year,
         min_sales,
-        max_sales
+        max_sales,
+        dt_pivot
     )
     #st.title(":bar_chart: Sales Dashboard")
 
@@ -158,7 +165,8 @@ def show_home():
         max_year,
         min_year,
         max_sales,
-        min_sales
+        min_sales,
+        dt_pivot
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
@@ -313,11 +321,19 @@ def show_home():
     tickmode='linear',  
     dtick=1               
 )
+
+    orders_heat= px.imshow(
+        dt_pivot,
+        color_continous_scale= "#AB4A0E",
+        title= "Order Concentration by Region & Year"
+    )
     
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
         st.plotly_chart(yearly_sales_bar)
+      with st.container(border= True):
+        st.plotly_chart(orders_heat)
     with far_right:
       with st.container(border= True):
         st.plotly_chart(cat_chart)
