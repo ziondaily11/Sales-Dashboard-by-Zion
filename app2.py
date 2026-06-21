@@ -325,7 +325,7 @@ def show_home():
         title= "Order Concentration by Region & Year"
     )
     orders_heat.update_layout(
-        height= 200,
+        height= 180,
         title_font_color= "#AB4A0E",
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
