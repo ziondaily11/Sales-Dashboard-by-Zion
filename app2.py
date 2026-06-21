@@ -389,7 +389,8 @@ def show_home():
         yaxis= dict(
             title= None,
             showgrid= False,
-            showticklabels= False
+            showticklabels= False,
+            zeroline= False
         ),
         xaxis= dict(
             title= None,
