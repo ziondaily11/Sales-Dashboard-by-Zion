@@ -254,7 +254,7 @@ def show_home():
         font_color="white",
         title_font_color="#752F05" ,
         xaxis= dict(
-            tickfont= dict(size= 8)
+            tickfont= dict(size= 8),
             title=None),
         yaxis= dict(
           title= None,
