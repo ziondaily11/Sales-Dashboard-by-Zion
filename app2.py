@@ -124,12 +124,8 @@ def store_2(df):
     sales_per_region["mark"]= sales_per_region["net_sales"].apply(format_number)
     #product count
     unique_products= df["product_id"].nunique()
-    dt_pivot= df.pivot_table(
-        values= "order_id",
-        index= "region",
-        column= "year",
-        aggfunc= "nunique"
-    )
+    dt_pivot= df.groupby(by= ["region", "year"])[["order_id"]].count().unstack()
+    
     
          
     return (
