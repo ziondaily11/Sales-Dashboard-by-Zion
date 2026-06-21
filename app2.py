@@ -210,6 +210,7 @@ def show_home():
     cat_chart.update_traces(
       textposition= "outside")
     cat_chart.update_layout(
+        margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
             showgrid= False,
             title= None
