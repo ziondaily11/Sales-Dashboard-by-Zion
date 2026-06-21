@@ -348,6 +348,7 @@ def show_home():
         hole= 0.8,
         textinfo= "label",
         textposition= "outside"
+        domain= dict(x= [0.1, 0.7], y= [0.1, 0.7])
     ))
     status_pie.update_layout(
         height= 180,
