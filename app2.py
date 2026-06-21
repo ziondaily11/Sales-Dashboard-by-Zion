@@ -325,7 +325,7 @@ def show_home():
         title= "Order Concentration by Region & Year"
     )
     orders_heat.update_layout(
-        height= 200
+        height= 300
     )
     
     
