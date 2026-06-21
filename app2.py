@@ -300,7 +300,7 @@ def show_home():
             shape= "spline",
             color="#ff4500"),
         fillpattern= dict(
-                shape= "\",
+                shape= "/",
                 fgcolor= "#ff4500"
                 bgcolor= "rgba(0, 0, 0, 0)"
             )
