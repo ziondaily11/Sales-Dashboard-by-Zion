@@ -133,8 +133,8 @@ def store_2(df):
     df = df[df["order_status"].isin(["Delivered", "Returned", "Shipped", "Cancelled", "Refunded", "Processing"])]
     del_counts= df.groupby(by= ["order_status"])[["order_id"]].count().reset_index()
     df_comb = df.groupby(by=["year"]).agg(
-    completed=("order_status", lambda x: (x == "delivered").count()),
-    returned=("order_status", lambda x: -(x == "returned").count())  # note the minus sign
+    completed=("order_status", lambda x: (x == "Delivered").count()),
+    returned=("order_status", lambda x: -(x == "Returned").count())  # note the minus sign
 ).reset_index()
     
     return (
