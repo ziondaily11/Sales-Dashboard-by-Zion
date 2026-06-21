@@ -134,8 +134,8 @@ def store_2(df):
    
     del_counts= df.groupby(by= ["order_status"])[["order_id"]].count().reset_index()
     df_comb = df.groupby(by=["year"]).agg(
-    completed=("order_status", lambda x: (x == "Delivered").sum()),
-    returned=("order_status", lambda x: -(x == "Returned").sum())  
+    completed=("order_status", lambda x: (x == "delivered").sum()),
+    returned=("order_status", lambda x: -(x == "returned").sum())  
 ).reset_index()
     st.dataframe(df_comb)
     st.write(df["order_status"].value_counts())
