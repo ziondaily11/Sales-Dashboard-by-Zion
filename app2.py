@@ -289,7 +289,7 @@ def show_home():
             dtick= 1,
         ),
         yaxis= dict(
-            range= [min_sales*0.9, max_sales*0.1]
+            range= [min_sales*0.9, max_sales*0.1],
             showgrid= False,
             showticklabels= False,
             title= None),
