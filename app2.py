@@ -375,7 +375,7 @@ def show_home():
 )
 
     ret_ag_del.update_layout(
-        height= 180,
+        height= 200,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         yaxis= dict(
             title= None,
