@@ -134,7 +134,7 @@ def store_2(df):
     del_counts= df.groupby(by= ["order_status"])[["order_id"]].count().reset_index()
     df_comb = df.groupby(by=["year"]).agg(
     completed=("order_status", lambda x: (x == "Delivered").count()),
-    returned=("order_status", lambda x: -(x == "Returned").count())  # note the minus sign
+    returned=("order_status", lambda x: -(x == "Returned").count())  
 ).reset_index()
     
     return (
@@ -374,7 +374,19 @@ def show_home():
     }
 )
 
-    ret_ag_del.update_layout(yaxis_title="Orders")
+    ret_ag_del.update_layout(
+        height= 180,
+        margin= dict(t= 40, b= 10, l= 10, r= 10),
+        yaxis= dict(
+            title= None,
+            showgrid= False
+            showticklabels= False
+        ),
+        xaxis= dict(
+            title= None
+            showgrid= False
+        )
+    )
     ret_ag_del.add_hline(y=0, line_color="white")
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
@@ -388,11 +400,10 @@ def show_home():
     with right:
         with st.container(border= True):
           st.plotly_chart(region_sales_bar)
-        
-
-    with st.container(border= True):
+         with st.container(border= True):
             st.plotly_chart(ret_ag_del)
-    st.dataframe(df_comb)
+
+    
     
     
     
