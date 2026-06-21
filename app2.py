@@ -374,10 +374,8 @@ def show_home():
     }
 )
 
-   ret_ag_del.update_layout(yaxis_title="Orders")
-   ret_ag_del.add_hline(y=0, line_color="white")
-    
-    
+    ret_ag_del.update_layout(yaxis_title="Orders")
+    ret_ag_del.add_hline(y=0, line_color="white")
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
