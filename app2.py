@@ -301,10 +301,10 @@ def show_home():
     yearly_sales_bar.update_traces(
         line= dict(
             shape= "spline",
-            color="#ff4500"),
+            color="#AB4A0E"),
         fillpattern= dict(
                 shape= "/",
-                fgcolor= "#ff4500",
+                fgcolor= "#AB4A0E",
                 bgcolor= "rgba(0, 0, 0, 0)"
             )
     )
