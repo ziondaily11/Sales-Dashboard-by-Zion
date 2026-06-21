@@ -363,15 +363,15 @@ def show_home():
     x="year",
     y=["completed", "returned"], 
     title="Completed Vs Returned orders over time",
-    barmode="relative",  # "group" won't let bars cross the zero line — "relative" stacks +/- correctly
+    barmode="relative",  
     color_discrete_map={
-        "completed": "#3a9ad9",  # blue, matches your reference image
-        "returned": "#e8622a"    # red/orange, matches your reference image
+        "completed": "#41ED31", 
+        "returned": "#E53838"    
     }
 )
 
     ret_ag_del.update_layout(
-        height= 200,
+        height= 180,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         yaxis= dict(
             title= None,
