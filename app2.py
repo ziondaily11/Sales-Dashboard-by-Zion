@@ -362,17 +362,20 @@ def show_home():
         legend= dict(orientation= "h", y= -0.1)
     )
     #further  order status analysis
-    ret_ag_del= px.bar(
-        df_comb,
-        x= "year",
-        y= ["completed", "returned"],
-        title= "Completed Vs Returned orders over time",
-        barmode= "group",
-        color_discrete_map={
-            "completed": "#e8622a",
-             "returned": "#3a9ad9"
-        }
-    )
+    ret_ag_del = px.bar(
+    df_comb,
+    x="year",
+    y=["completed", "returned"],
+    title="Completed Vs Returned orders over time",
+    barmode="relative",  # "group" won't let bars cross the zero line — "relative" stacks +/- correctly
+    color_discrete_map={
+        "completed": "#3a9ad9",  # blue, matches your reference image
+        "returned": "#e8622a"    # red/orange, matches your reference image
+    }
+)
+
+  ret_ag_del.update_layout(yaxis_title="Orders")
+  ret_ag_del.add_hline(y=0, line_color="white")
     
     
     left, right, far_right= st.columns([2, 1.5, 1.5])
