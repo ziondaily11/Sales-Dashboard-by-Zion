@@ -371,33 +371,33 @@ def show_home():
         legend= dict(orientation= "h", y= -0.1)
     )
     #further  order status analysis
-    ret_ag_del = px.bar(
-    df_comb,
-    x="year",
-    y=["completed", "returned"], 
-    title="Completed Vs Returned orders over time",
-    barmode="relative",  
-    color_discrete_map={
-        "completed": "#41ED31", 
-        "returned": "#E53838"    
-    }
-)
+    ret_ag_del = go.Figure()
+
+    ret_ag_del.add_trace(go.Bar(
+        x=df_comb["year"],
+        y=df_comb["completed"],
+        name="completed",
+        marker_color="#3a9ad9",
+        yaxis="y1"
+    ))
+    
+    ret_ag_del.add_trace(go.Bar(
+        x=df_comb["year"],
+        y=df_comb["returned"].abs(),  # use abs() now since we're not relying on negative-to-diverge anymore
+        name="returned",
+        marker_color="#e8622a",
+        yaxis="y2"
+    ))
 
     ret_ag_del.update_layout(
-        height= 180,
-        margin= dict(t= 40, b= 10, l= 10, r= 10),
-        yaxis= dict(
-            title= None,
-            showgrid= False,
-            showticklabels= False,
-            zeroline= False
-        ),
-        xaxis= dict(
-            title= None,
-            showgrid= False
-        )
+        title="Completed Vs Returned orders over time",
+        barmode="group",
+        yaxis=dict(title="Completed", showgrid=False, zeroline=False),
+        yaxis2=dict(title="Returned", overlaying="y", side="right", showgrid=False, zeroline=False),
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        margin=dict(l=0, r=0, t=40, b=0)
     )
-    
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
