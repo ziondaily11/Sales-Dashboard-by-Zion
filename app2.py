@@ -187,7 +187,7 @@ def show_home():
             return f"{num/1_000:.1f}K"
         return str(num)
     st.markdown("""
-        <h1 style="color: #20b2aa; font-family: Courier New, monospace; 
+        <h1 style="color: #ff4500; font-family: Courier New, monospace; 
                 font-size:36px">
             AMAZON SALES DASHBOARD
         </h1>
