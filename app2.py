@@ -298,7 +298,7 @@ def show_home():
     yearly_sales_bar.update_traces(
         line= dict(
             shape= "spline",
-            color= ORANGE),
+            color="#ff4500"),
         fillcolor= "rgba(232, 98, 42, 0.2)"
     )
     yearly_sales_bar.update_xaxes(
