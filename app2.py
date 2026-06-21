@@ -287,6 +287,7 @@ def show_home():
             tickvals= list(range(int(min_year), int(max_year)+1)),
             range= [int(min_year)-0.5, int(max_year)+0.5],
             showgrid= False,
+            title= None
             dtick= 1,
         ),
         yaxis= dict(
