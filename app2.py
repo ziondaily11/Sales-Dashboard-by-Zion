@@ -132,7 +132,7 @@ def store_2(df):
     completed=("order_status", lambda x: (x == "Delivered").count()),
     returned=("order_status", lambda x: -(x == "Returned").count())  
 ).reset_index()
-    st.dataframe(dt_comb)
+    st.dataframe(df_comb)
     return (
         total_sales,
         total_profit,
