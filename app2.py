@@ -265,9 +265,8 @@ def show_home():
         title= "<b> Yearly Sales Over Time</b>",
         color_discrete_sequence= ["#AB4A0E"],
     )
-    yearly_sales_bar.update_traces(
-        line_shape= "spline"
-    )
+    
+    
     yearly_sales_bar.update_layout(
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
