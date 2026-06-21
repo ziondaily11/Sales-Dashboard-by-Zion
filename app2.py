@@ -326,6 +326,7 @@ def show_home():
     )
     orders_heat.update_layout(
         height= 300,
+         margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
             title= None
         ),
