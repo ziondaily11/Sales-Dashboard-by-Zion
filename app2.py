@@ -299,7 +299,10 @@ def show_home():
         line= dict(
             shape= "spline",
             color="#ff4500"),
-        fillcolor= "rgba(232, 98, 42, 0.1)"
+        fillpattern(
+        shape= "\",
+        fgcolor= "#ff4500"
+        bgcolor= "rgba(0, 0, 0, 0)"
     )
     yearly_sales_bar.update_xaxes(
     tickmode='linear',  
