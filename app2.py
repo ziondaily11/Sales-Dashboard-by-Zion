@@ -400,7 +400,7 @@ def show_home():
     with right:
         with st.container(border= True):
           st.plotly_chart(region_sales_bar)
-         with st.container(border= True):
+        with st.container(border= True):
             st.plotly_chart(ret_ag_del)
 
     
