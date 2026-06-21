@@ -351,6 +351,7 @@ def show_home():
     ))
     status_pie.update_layout(
         height= 180
+        showlegend= False
     )
     
     
