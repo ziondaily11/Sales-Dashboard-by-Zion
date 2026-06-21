@@ -267,7 +267,7 @@ def show_home():
     )
 
     region_sales_bar.update_layout(
-        height= 250,
+        height= 230,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         font_color="white",
         title_font_color="#752F05" ,
@@ -349,6 +349,9 @@ def show_home():
         textinfo= "label",
         textposition= "outside"
     ))
+    status_pie.update_layout(
+        height= 180
+    )
     
     
     left, right, far_right= st.columns([2, 1.5, 1.5])
