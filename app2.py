@@ -301,7 +301,7 @@ def show_home():
             color="#ff4500"),
         fillpattern= dict(
                 shape= "/",
-                fgcolor= "#ff4500"
+                fgcolor= "#ff4500",
                 bgcolor= "rgba(0, 0, 0, 0)"
             )
     )
