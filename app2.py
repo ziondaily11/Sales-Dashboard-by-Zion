@@ -211,9 +211,31 @@ def show_home():
             }
         </style>
     """, unsafe_allow_html=True)
+    
+    def sparkline(series, line_color="#3a9ad9", height=50):
+            fig = go.Figure()
+            fig.add_trace(go.Scatter(
+                y=series,
+                mode="lines",
+                line=dict(color=line_color, width=2),
+                fill="tozeroy",
+            ))
+            fig.update_layout(
+                margin=dict(l=0, r=0, t=0, b=0),
+                height=height,
+                xaxis=dict(visible=False),
+                yaxis=dict(visible=False),
+                plot_bgcolor="rgba(0,0,0,0)",
+                paper_bgcolor="rgba(0,0,0,0)",
+                showlegend=False
+            )
+            st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+       
+)
     left_column,middle_column, right_column, far_right, far= st.columns(5)
     with left_column:
         st.metric(label="💰 Total Sales $", value=format_number(total_sales))
+        sparkline(df_comb["completed"])
 
     with middle_column:
         st.metric(label="📈 Profit $", value=format_number(total_profit))
