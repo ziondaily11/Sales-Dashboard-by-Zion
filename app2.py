@@ -285,7 +285,7 @@ def show_home():
     dtick=1               
 )
     
-    left, right, far_right= st.columns(3)
+    left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
         st.plotly_chart(yearly_sales_bar)
