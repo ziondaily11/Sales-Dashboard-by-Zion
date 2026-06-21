@@ -51,8 +51,8 @@ def excel_store():
     dt3= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSE8cE8cBYFRGLNeZUPTlrHMMbDKgS0R74nggBoCvXA5534Sbp9Q2ByWx1Rgh-fF_FbwT_csICYnOPI/pub?gid=691192464&single=true&output=csv")
     dt4= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRbH86QK79o2zl9csB3_aH0L1db4lWc7OeikHs0AeBsstUGNlOw8zP4npAaObKRv9e7548zKk8f91Qd/pub?gid=1570935170&single=true&output=csv")
     dt_e= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRYELTw4obFZKW7M7hMK7P3WySKBEjam5kb8PUYtmNsNcqx2-NiEGYN4EJUI3PeOoM2WUzmUxRBCdO4/pub?gid=1076665978&single=true&output=csv")
-    dt_f= download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRCLG4WKL4zOzx8xGUqRQ6UmT4rIpTwWNkZlLzwmTrV-lBPkXKP3KWpuIXinM0_Kn3h49tgcx9pxKE7/pub?output=csv")
-    order_items_dt=pd.concat([dt1, dt2, dt3, dt4, dt_e, dt_f], ignore_index= True)
+    
+    order_items_dt=pd.concat([dt1, dt2, dt3, dt4, dt_e], ignore_index= True)
   
 
     products_dt = download_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQqRDfmfmUQGG0irIAn_ZkhC_iKiRCsMzLVl_s_2Wa0R7ULD6D3TGmKksyYlb1sTbHnYkAn5Pk-6DMg/pub?output=csv")
