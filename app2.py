@@ -125,7 +125,7 @@ def store_2(df):
     #product count
     unique_products= df["product_id"].nunique()
     dt_pivot= df.groupby(by= ["region", "year"])[["order_id"]].count().unstack()
-    
+    dt_pivot.columns.name= None
     
          
     return (
@@ -323,6 +323,7 @@ def show_home():
         color_continuous_scale= "Oranges",
         title= "Order Concentration by Region & Year"
     )
+    
     
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
