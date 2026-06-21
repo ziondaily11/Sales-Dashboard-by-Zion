@@ -347,7 +347,7 @@ def show_home():
         values= del_counts["order_id"],
         hole= 0.8,
         textinfo= "label",
-        textposition= "outside"
+        textposition= "outside",
         domain= dict(x= [0.1, 0.7], y= [0.1, 0.7])
     ))
     status_pie.update_layout(
