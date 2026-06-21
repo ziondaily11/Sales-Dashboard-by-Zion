@@ -346,7 +346,7 @@ def show_home():
         labels= del_counts["order_status"],
         values= del_counts["order_id"],
         hole= 0.8,
-        textinfo= "label"
+        textinfo= "label",
         textposition= "outside"
     ))
     
