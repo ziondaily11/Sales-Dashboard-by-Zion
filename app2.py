@@ -384,15 +384,7 @@ def show_home():
     }
 )
 
-    ret_ag_del.update_layout(
-        yaxis_title="Orders",
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-        margin=dict(l=0, r=0, t=40, b=0),
-        legend_title_text=""
-    )
     
-    ret_ag_del.update_yaxes(showgrid=False, zeroline=False)
     
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
