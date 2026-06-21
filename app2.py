@@ -131,8 +131,8 @@ def store_2(df):
     ##RETURNED, DELIVERRED GOODS COUNT
     del_counts= df.groupby(by= ["order_status"])[["order_id"]].count().reset_index()
     df_comb= df.groupby(by= ["year"]).agg(
-        completed= ("order_id", lambda x: (x== "Delivered").sum()),
-        returned= ("order_id", lambda x: (x== "Returned").sum())
+        completed= ("order_status", lambda x: (x== "Delivered").sum()),
+        returned= ("order_status", lambda x: (x== "Returned").sum())
 
     ).reset_index()
     
