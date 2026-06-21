@@ -320,7 +320,7 @@ def show_home():
 
     orders_heat= px.imshow(
         dt_pivot,
-        color_continous_scale= "Oranges",
+        color_continuous_scale= "Oranges",
         title= "Order Concentration by Region & Year"
     )
     
