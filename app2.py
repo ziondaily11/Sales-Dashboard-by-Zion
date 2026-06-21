@@ -270,7 +270,7 @@ def show_home():
     yearly_sales_bar.update_layout(
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
-            tickvals= [2020, 2021, 2022, 2023, 2024]
+            tickvals= [2020, 2021, 2022, 2023, 2024],
             range= [2019.5, 2024.5],
             showgrid= False,
             dtick= 1,
