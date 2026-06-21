@@ -135,6 +135,7 @@ def store_2(df):
         returned= ("order_id", lambda x: (x== "returned").sum())
 
     ).reset_index()
+    
     return (
         total_sales,
         total_profit,
@@ -390,7 +391,7 @@ def show_home():
     with st.container(border= True):
             st.plotly_chart(ret_ag_del)
     
-
+    st.write(df["order_status"].unique())
  #customer insights
 @st.cache_data
 def xcl_store():
