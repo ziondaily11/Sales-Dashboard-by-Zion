@@ -398,6 +398,7 @@ def show_home():
           st.plotly_chart(region_sales_bar)
         with st.container(border= True):
             st.plotly_chart(ret_ag_del)
+   st.dataframe(dt_comb)
 
     
     
