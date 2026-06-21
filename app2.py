@@ -128,7 +128,7 @@ def store_2(df):
         values= "order_id",
         index= "region",
         column= "year",
-        aggfunc= len
+        aggfunc= "nunique"
     )
     
          
