@@ -338,7 +338,7 @@ def show_home():
     with right:
        with st.container(border= True):
           st.plotly_chart(region_sales_bar)
-    st.write(dt_pivot) 
+    
     st.dataframe(df.head(101))
 
  #customer insights
