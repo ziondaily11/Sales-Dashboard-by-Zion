@@ -383,7 +383,9 @@ def show_home():
         "returned": "#e8622a"
     }
 )
-    ret_ag_del.update_layout(title_font_color= "#ff4500")
+    ret_ag_del.update_layout(
+        height= 180,
+        title_font_color= "#ff4500")
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
