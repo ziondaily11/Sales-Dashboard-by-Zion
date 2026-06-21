@@ -394,7 +394,7 @@ def show_home():
             st.plotly_chart(ret_ag_del)
     
     
-    st.write(df["order_status"].unique())
+    
  #customer insights
 @st.cache_data
 def xcl_store():
