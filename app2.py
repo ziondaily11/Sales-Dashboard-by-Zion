@@ -130,8 +130,11 @@ def store_2(df):
     dt_pivot_norm= dt_pivot.div(dt_pivot.max(axis= 1), axis= 0)
     ##RETURNED, DELIVERRED GOODS COUNT
     del_counts= df.groupby(by= ["order_status"])[["order_id"]].count().reset_index()
+    df_comb= df.groupby(by= ["year"]).agg(
+        completed= ("order_id", lambda x: (df.loc[x.index, "order_status"]== "Delivered").sum()),
+        returned= ("order_id", lambda x: (df.loc[x.index, "order_status"]== "Returned").sum())
 
-       
+    )
     return (
         total_sales,
         total_profit,
@@ -146,7 +149,8 @@ def store_2(df):
         min_sales,
         max_sales,
         dt_pivot_norm,
-        del_counts
+        del_counts,
+        df_comb
     )
     #st.title(":bar_chart: Sales Dashboard")
 
@@ -168,7 +172,8 @@ def show_home():
         max_sales,
         min_sales,
         dt_pivot_norm,
-        del_counts
+        del_counts,
+        df_comb
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
@@ -354,6 +359,18 @@ def show_home():
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         legend= dict(orientation= "h", y= -0.1)
     )
+    #further  order status analysis
+    ret_ag_del= px.bar(
+        df_comb,
+        x= "year",
+        y= ["completed", "returned"],
+        title= "Completed Vs Returned orders over time",
+        barmode= "group",
+        color_discrete_map={
+            "completed": "#e8622a",
+             "returned": "3a9ad9"
+        }
+    )
     
     
     left, right, far_right= st.columns([2, 1.5, 1.5])
@@ -369,7 +386,7 @@ def show_home():
         with st.container(border= True):
           st.plotly_chart(region_sales_bar)
         with st.container(border= True):
-            st.plotly_chart(status_pie)
+            st.plotly_chart(ret_ag_del)
 
     
     st.dataframe(df.head(101))
