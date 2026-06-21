@@ -294,7 +294,7 @@ def show_home():
             range= [min_sales*0.98, max_sales*1.02],
             showgrid= False,
             showticklabels= False,
-            title= None),
+            title= None,
        title_font_color= "#AB4A0E"
     )
     yearly_sales_bar.update_traces(
