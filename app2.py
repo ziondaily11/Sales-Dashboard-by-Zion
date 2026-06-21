@@ -277,7 +277,7 @@ def show_home():
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
             tickvals= list(range(min_year, max_year+1)),
-            range= [min_year-0.5, max_year+0.5],
+            range= [int(min_year)-0.5, int(max_year)+0.5],
             showgrid= False,
             dtick= 1,
         ),
