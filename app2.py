@@ -231,7 +231,7 @@ def show_home():
             )
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
        
-)
+
     left_column,middle_column, right_column, far_right, far= st.columns(5)
     with left_column:
         st.metric(label="💰 Total Sales $", value=format_number(total_sales))
