@@ -287,14 +287,14 @@ def show_home():
             tickvals= list(range(int(min_year), int(max_year)+1)),
             range= [int(min_year)-0.5, int(max_year)+0.5],
             showgrid= False,
-            title= None
+            title= None,
             dtick= 1,
         ),
         yaxis= dict(
             range= [min_sales*0.98, max_sales*1.02],
             showgrid= False,
             showticklabels= False,
-            title= None,
+            title= None),
        title_font_color= "#AB4A0E"
     )
     yearly_sales_bar.update_traces(
