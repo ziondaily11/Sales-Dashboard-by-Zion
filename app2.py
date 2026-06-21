@@ -10,10 +10,6 @@ import io
 import sys 
 sys.modules['warnings'] = warnings
 #option menu code
-st.set_page_config(page_title= "Sales Dashbord",
-                    page_icon= ":bar_chart:",
-                    layout= "wide")
-
 selected = option_menu(
     menu_title=None,
     options=["Home", "Customers", "Marketing", "Graphs"],
@@ -191,7 +187,7 @@ def show_home():
             📊 Sales Dashboard
         </h1>
     """, unsafe_allow_html=True)
-    st.markdown("---")
+    
     st.markdown("""
         <style>
             [data-testid="stMetric"] {
