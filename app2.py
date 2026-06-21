@@ -340,13 +340,14 @@ def show_home():
             title= None
         )
     )
+     
 
     status_pie= go.Figure(go.Pie(
         del_counts,
         labels= "order_status",
         values= "order_id",
         hole= 0.8,
-        textinfo= "labels",
+        textinfo= "label",
         textposition= "outside"
     ))
     
