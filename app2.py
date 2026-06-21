@@ -346,13 +346,13 @@ def show_home():
         labels= del_counts["order_status"],
         values= del_counts["order_id"],
         hole= 0.8,
-        textinfo= "label",
-        textposition= "outside",
+        textinfo= None,
         domain= dict(x= [0.1, 0.7], y= [0.1, 0.7])
     ))
     status_pie.update_layout(
         height= 300,
-        showlegend= False
+        margin= dict(t= 40, b= 10, l= 10, r= 10),
+        legend= dict(orientation= "h", y= -0.1)
     )
     
     
