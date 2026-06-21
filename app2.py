@@ -397,7 +397,7 @@ def show_home():
             showgrid= False
         )
     )
-    ret_ag_del.add_hline(y=0, line_color="white")
+    
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
