@@ -184,7 +184,7 @@ def show_home():
                 padding: 20px;
             }
             [data-testid="stMetricLabel"] {
-                color: #aaaaaa;
+                color: #ff4500;
                 font-size: 16px;
             }
             [data-testid="stMetricValue"] {
