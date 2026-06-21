@@ -9,6 +9,11 @@ import requests
 import io
 import sys 
 sys.modules['warnings'] = warnings
+st.set_page_config(
+    page_title="Dashboard",
+    page_icon=":bar_chart:",
+    layout="wide"
+)
 #option menu code
 selected = option_menu(
     menu_title=None,
