@@ -113,6 +113,8 @@ def store_2(df):
         .sum()
         .reset_index()
     )
+    min_sales= sales_per_year["net_sales"].min()
+    max_sales= sales_per_year["net_sales"].max()
     sales_per_region=(
         df.groupby(by= df["region"])[["net_sales"]]
         .sum()
@@ -133,7 +135,9 @@ def store_2(df):
         sales_per_year,
         unique_products,
         max_year,
-        min_year
+        min_year,
+        min_sales,
+        max_sales
     )
     #st.title(":bar_chart: Sales Dashboard")
 
@@ -151,7 +155,9 @@ def show_home():
         sales_per_year,
         unique_products,
         max_year,
-        min_year
+        min_year,
+        max_sales,
+        min_sales
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
@@ -283,6 +289,7 @@ def show_home():
             dtick= 1,
         ),
         yaxis= dict(
+            range= [min_sales*0.9, max_sales*0.1]
             showgrid= False,
             showticklabels= False,
             title= None),
