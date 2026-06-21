@@ -270,7 +270,7 @@ def show_home():
         textposition= "outside")
     
     #sales Per year line graph
-    yearly_sales_bar= px.line(
+    yearly_sales_bar= px.area(
         sales_per_year,
         x= "year",
         y="net_sales",
