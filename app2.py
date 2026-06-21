@@ -107,6 +107,7 @@ def store_2(df):
     #Sales per year
     df["order_date"]= pd.to_datetime(df["order_date"])
     df["year"]= df["order_date"].dt.year
+    st.write(df["year"].unique())
     max_year= df["year"].max()
     min_year= df["year"].min()
     sales_per_year=(
@@ -391,7 +392,7 @@ def show_home():
     with st.container(border= True):
             st.plotly_chart(ret_ag_del)
     
-    st.write(df["year"].unique())
+    
     st.write(df["order_status"].unique())
  #customer insights
 @st.cache_data
