@@ -365,7 +365,7 @@ def show_home():
     ret_ag_del = px.bar(
     df_comb,
     x="year",
-    y=["completed", "returned"],
+    y=["completed", "returned"], 
     title="Completed Vs Returned orders over time",
     barmode="relative",  # "group" won't let bars cross the zero line — "relative" stacks +/- correctly
     color_discrete_map={
@@ -374,8 +374,8 @@ def show_home():
     }
 )
 
-  ret_ag_del.update_layout(yaxis_title="Orders")
-  ret_ag_del.add_hline(y=0, line_color="white")
+   ret_ag_del.update_layout(yaxis_title="Orders")
+   ret_ag_del.add_hline(y=0, line_color="white")
     
     
     left, right, far_right= st.columns([2, 1.5, 1.5])
