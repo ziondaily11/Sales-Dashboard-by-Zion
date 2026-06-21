@@ -324,6 +324,9 @@ def show_home():
         color_continuous_scale= "Oranges",
         title= "Order Concentration by Region & Year"
     )
+    orders_heat.update_layout(
+        height= 200
+    )
     
     
     left, right, far_right= st.columns([2, 1.5, 1.5])
