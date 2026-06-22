@@ -201,7 +201,7 @@ def show_home():
     st.markdown("""
         <style>
             [data-testid="stMetric"] {
-                background-color: #1e1e2e;
+                background-color: #0E0D0B;
                 border: 1px solid #333;
                 border-radius: 10px;
                 padding: 20px;
