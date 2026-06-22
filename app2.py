@@ -367,7 +367,7 @@ def show_home():
         height= 180,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         yaxis= dict(
-            tickvals= dict(size= 8),
+            tickfont= dict(size= 8),
             showgrid= False,
             title= None,
             showticklabels= None
