@@ -361,44 +361,7 @@ def show_home():
     )
      
 
-    status_pie= go.Figure(go.Pie(
-        labels= del_counts["order_status"],
-        values= del_counts["order_id"],
-        hole= 0.7,
-        textinfo= "label",
-        domain=dict(
-            x=[0.15, 0.85],
-            y=[0.15, 0.85]
-            )
-    ))
-    status_pie.update_layout(
-        height= 250,
-        margin= dict(t= 40, b= 10, l= 10, r= 10),
-        legend= dict(orientation= "h", y= -0.1)
-    )
-    #further  order status analysis
-    ret_ag_del = px.bar(
-    df_comb,
-    x="year",
-    y=["completed", "returned"],
-    title="Completed Vs Returned orders over time",
-    barmode="group",
-    color_discrete_map={
-        "completed": "#3a9ad9",
-        "returned": "#e8622a"
-    }
-)
-    ret_ag_del.update_layout(
-        height= 180,
-        title_font_color= "#F6EFF3",
-        yaxis= dict(
-        title= False,
-        showgrid= False
-        ),
-        xaxis= dict(
-            showgrid= False)
-        )
-    ret_ag_del.update_yaxes(type="log")
+    
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
@@ -412,7 +375,7 @@ def show_home():
         with st.container(border= True):
           st.plotly_chart(region_sales_bar)
         with st.container(border= True):
-            st.plotly_chart(status_pie)
+            st.plotly_chart()
    
 
     
