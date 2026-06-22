@@ -387,7 +387,16 @@ def show_home():
 )
     ret_ag_del.update_layout(
         height= 180,
-        title_font_color= "#F6EFF3")
+        title_font_color= "#F6EFF3"
+        yaxis= dict(
+        title= False,
+        showgrid= False,
+        showlegend= False
+        ),
+        xaxis= dict(
+            showlegend= False,
+            showgrid= False)
+        )
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
