@@ -110,6 +110,7 @@ def store_2(df):
     .size()
     .reset_index(name="returned_orders")
      )
+    st.dataframe(returned_orders_yearly)
     profit_per_category=(
          df.groupby(by= df["category"])[["net_sales"]].sum().reset_index()
     )
