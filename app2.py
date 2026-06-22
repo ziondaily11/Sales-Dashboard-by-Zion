@@ -285,7 +285,7 @@ def show_home():
     )
 
     region_sales_bar.update_layout(
-        height= 230,
+        height= 200,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         font_color="white",
         title_font_color="#F6EFF3" ,
