@@ -387,8 +387,6 @@ def show_home():
     with left:
       with st.container(border= True):
         st.plotly_chart(yearly_sales_bar)
-      with st.container(border= True):
-        st.plotly_chart(orders_heat)
     with far_right:
       with st.container(border= True):
         st.plotly_chart(cat_chart)
