@@ -235,7 +235,14 @@ def show_home():
         </style>
         """, unsafe_allow_html=True)
         
-        
+    st.markdown("""
+        <style>
+        [data-testid="stVerticalBlockBorderWrapper"] {
+            height: fit-content !important;
+            align-self: flex-start !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)    
     with left_column:
         with st.container(border= True):
               st.metric(label="💰 Total Sales $", value=format_number(total_sales))
