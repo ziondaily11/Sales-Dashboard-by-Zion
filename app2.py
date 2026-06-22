@@ -264,7 +264,7 @@ def show_home():
     with left_column:
         with st.container(border= True):
               st.metric(label="💰 Total Sales $", value=format_number(total_sales))
-              st.plotly_chart(sparkline(sales_per_year["net_sales"]), user_container_width= True)
+              st.plotly_chart(sparkline(sales_per_year["net_sales"]), use_container_width= True)
       
     with middle_column:
         st.metric(label="📈 Profit $", value=format_number(total_profit))
