@@ -349,7 +349,7 @@ def show_home():
     )
     orders_heat.update_layout(
         height= 180,
-        title_font_color= "#AB4A0E",
+        title_font_color= "#F6EFF3",
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
             title= None
@@ -386,7 +386,7 @@ def show_home():
 )
     ret_ag_del.update_layout(
         height= 180,
-        title_font_color= "#ff4500")
+        title_font_color= "#F6EFF3")
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
