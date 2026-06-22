@@ -373,6 +373,7 @@ def show_home():
             showticklabels= None
         ),
         xaxis= dict(
+            tickfont= dict(size= 8),
             showgrid= False,
             title= None,
             showticklabels= None
