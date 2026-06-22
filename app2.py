@@ -370,7 +370,7 @@ def show_home():
     sales_channel_bar.update_layout(
         height= 180,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
-        textposition= "outside",
+        
         yaxis= dict(
             tickfont= dict(size= 8),
             showgrid= False,
@@ -382,6 +382,7 @@ def show_home():
             showgrid= False,
             title= None
         ))
+    sales_channel_bar.update_traces(textposition= "outside")
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
