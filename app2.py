@@ -319,6 +319,7 @@ def show_home():
     
     returned_orders_yearly_line.update_layout(
         height= 180,
+        margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
             title= None,
             showgrid= False),
