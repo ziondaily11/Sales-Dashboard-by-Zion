@@ -99,6 +99,14 @@ def store_2(df):
     total_profit= (df[df["order_status"]=="delivered"]["profit"]).sum()
     gross_profit_margin= round(total_profit*100/total_sales) if total_sales else 0
     delivered_orders = len(df[df["order_status"] == "delivered"]) 
+    #returned orders
+    returned_order= len(df[df["order_status"] == "returned"])
+    returned_orders_yearly = (
+    df[df["order_status"] == "returned"]
+    .groupby("year")
+    .size()
+    .reset_index(name="returned_orders")
+     )
     profit_per_category=(
          df.groupby(by= df["category"])[["net_sales"]].sum().reset_index()
     )
@@ -153,8 +161,8 @@ def store_2(df):
         min_year,
         min_sales,
         max_sales,
-        dt_pivot_norm,
-        sales_channel
+        sales_channel,
+        returned_orders_yearly
     )
     #st.title(":bar_chart: Sales Dashboard")
 
@@ -175,7 +183,7 @@ def show_home():
         min_year,
         max_sales,
         min_sales,
-        dt_pivot_norm,
+        returned_orders_yearly,
         sales_channel
     ) = store_2(df)
     def format_number(num):
@@ -300,6 +308,11 @@ def show_home():
         textposition= "outside")
     
     #sales Per year line graph
+    returned_orders_yearly_line= px.area(
+        x= returned_orders_yearly.index,
+        y= returned_orders_yearly.values,
+        markers= True)
+    
     yearly_sales_bar= px.area(
         sales_per_year,
         x= "year",
@@ -387,6 +400,9 @@ def show_home():
     with left:
       with st.container(border= True):
         st.plotly_chart(yearly_sales_bar)
+      with st.container(border= True):
+           st.plotly_chart(returned_orders_yearly_line)
+          
     with far_right:
       with st.container(border= True):
         st.plotly_chart(cat_chart)
