@@ -242,10 +242,29 @@ def show_home():
             align-self: flex-start !important;
         }
         </style>
-        """, unsafe_allow_html=True)    
+        """, unsafe_allow_html=True)
+    def sparkline(data, color="#e8622a"):
+            fig = go.Figure(go.Scatter(
+                y=data,
+                mode="lines",
+                line=dict(color=color, width=2),
+                fill="tozeroy",
+                fillcolor="rgba(232, 98, 42, 0.15)"
+            ))
+            fig.update_layout(
+                height=80,
+                margin=dict(t=0, b=0, l=0, r=0),
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+                xaxis=dict(visible=False),
+                yaxis=dict(visible=False),
+                showlegend=False
+            )
+            return fig
     with left_column:
         with st.container(border= True):
               st.metric(label="💰 Total Sales $", value=format_number(total_sales))
+              st.plotly_chart(sparkline(sales_per_year["net_sales"]), user_container_width= True)
       
     with middle_column:
         st.metric(label="📈 Profit $", value=format_number(total_profit))
