@@ -131,11 +131,11 @@ def store_2(df):
     dt_pivot.columns.name= None
     dt_pivot.columns= dt_pivot.columns.droplevel(0).astype(int)
     dt_pivot_norm= dt_pivot.div(dt_pivot.max(axis= 1), axis= 0)
-    ##RETURNED, DELIVERRED GOODS COUNT
-   
-    del_counts= df.groupby(by= ["order_status"])[["order_id"]].count().reset_index()
-    df_comb = df.groupby(by=["year"]).agg(
-    completed=("order_status", lambda x: (x == "delivered").sum()),
+    #Sales channel Analysis
+    sales_channel= df.groupby(by= ["sales_channel"])[["net_sales"]]
+    .sum()
+    .reset_index()
+    
     returned=("order_status", lambda x: (x == "returned").sum())  
 ).reset_index()
     
@@ -153,8 +153,7 @@ def store_2(df):
         min_sales,
         max_sales,
         dt_pivot_norm,
-        del_counts,
-        df_comb
+        sales_channel
     )
     #st.title(":bar_chart: Sales Dashboard")
 
@@ -176,8 +175,7 @@ def show_home():
         max_sales,
         min_sales,
         dt_pivot_norm,
-        del_counts,
-        df_comb
+        sales_channel
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
@@ -360,7 +358,11 @@ def show_home():
         )
     )
      
-
+    #sales Analysis
+    sales_channel_bar= px.bar(
+        sales_channel,
+        x= "sales_channel",
+        y= "net_sales")
     st.dataframe(df.head())
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
@@ -374,6 +376,8 @@ def show_home():
     with right:
         with st.container(border= True):
           st.plotly_chart(region_sales_bar)
+        with st.container(border= True):
+          st.plotly_chart(sales_channel_bar)
         
    
 
