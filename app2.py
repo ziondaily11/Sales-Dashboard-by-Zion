@@ -136,8 +136,7 @@ def store_2(df):
     .sum()
     .reset_index()
     
-    returned=("order_status", lambda x: (x == "returned").sum())  
-).reset_index()
+    
     
     return (
         total_sales,
