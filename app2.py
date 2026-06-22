@@ -221,46 +221,7 @@ def show_home():
        
 
     left_column,middle_column, right_column, far_right, far= st.columns(5)
-    st.markdown("""
-        <style>
-        [data-testid="stMetric"] {
-            background-color: #1a1a1a;
-            border-radius: 12px;
-            padding: 10px;
-        }
-        
-        [data-testid="stVerticalBlock"] [data-testid="stVerticalBlock"] {
-            gap: 0rem;
-        }
-        </style>
-        """, unsafe_allow_html=True)
-        
-    st.markdown("""
-        <style>
-        [data-testid="stVerticalBlockBorderWrapper"] {
-            height: fit-content !important;
-            align-self: flex-start !important;
-        }
-        </style>
-        """, unsafe_allow_html=True)
-    def sparkline(data, color="#e8622a"):
-            fig = go.Figure(go.Scatter(
-                y=data,
-                mode="lines",
-                line=dict(color=color, width=2),
-                fill="tozeroy",
-                fillcolor="rgba(232, 98, 42, 0.15)"
-            ))
-            fig.update_layout(
-                height=80,
-                margin=dict(t=0, b=0, l=0, r=0),
-                paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="rgba(0,0,0,0)",
-                xaxis=dict(visible=False),
-                yaxis=dict(visible=False),
-                showlegend=False
-            )
-            return fig
+   
     with left_column:
         st.metric(label="💰 Total Sales $", value=format_number(total_sales))
             
