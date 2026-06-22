@@ -87,11 +87,11 @@ def store_2(df):
     df= excel_store()
     def format_number(num):
         if num >= 1_000_000_000:
-            return f"{num/1_000_000_000:.1f}B"
+            return f"${num/1_000_000_000:.1f}B"
         elif num >= 1_000_000:
-            return f"{num/1_000_000:.1f}M"
+            return f"${num/1_000_000:.1f}M"
         elif num >= 1_000:
-            return f"{num/1_000:.1f}K"
+            return f"${num/1_000:.1f}K"
         return str(num)
     
     df["order_status"] = df["order_status"].str.strip().str.lower()
@@ -179,11 +179,11 @@ def show_home():
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
-            return f"{num/1_000_000_000:.1f}B"
+            return f"${num/1_000_000_000:.1f}B"
         elif num >= 1_000_000:
-            return f"{num/1_000_000:.1f}M"
+            return f"${num/1_000_000:.1f}M"
         elif num >= 1_000:
-            return f"{num/1_000:.1f}K"
+            return f"${num/1_000:.1f}K"
         return str(num)
     col1, col2 = st.columns([1, 10], vertical_alignment= "center")
     with col1:
