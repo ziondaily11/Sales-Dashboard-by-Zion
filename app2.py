@@ -372,13 +372,12 @@ def show_home():
             tickfont= dict(size= 8),
             showgrid= False,
             title= None,
-            showticklabels= None
+            showticklabels= False
         ),
         xaxis= dict(
             tickfont= dict(size= 8),
             showgrid= False,
-            title= None,
-            showticklabels= None
+            title= None
         ))
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
