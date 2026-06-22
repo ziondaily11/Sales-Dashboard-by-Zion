@@ -265,7 +265,7 @@ def show_home():
         showlegend= False,
         paper_bgcolor="rgba(0, 0, 0, 0)",
         font_color="white",
-        title_font_color="#752F05" 
+        title_font_color="#F6EFF3" 
     )
     
 
@@ -288,7 +288,7 @@ def show_home():
         height= 230,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         font_color="white",
-        title_font_color="#752F05" ,
+        title_font_color="#F6EFF3" ,
         xaxis= dict(
             tickfont= dict(size= 8),
             title=None),
@@ -325,7 +325,7 @@ def show_home():
             showgrid= False,
             showticklabels= False,
             title= None),
-       title_font_color= "#AB4A0E"
+       title_font_color= "#F6EFF3"
     )
     yearly_sales_bar.update_traces(
         line= dict(
