@@ -279,7 +279,7 @@ def show_home():
         text= "mark",
         #orientation="h",
         title= "<b> Sales per Region</b>",
-        color_discrete_sequence=["#AB4A0E"]
+        color_discrete_sequence=["#672AF4"]
         
         
     )
