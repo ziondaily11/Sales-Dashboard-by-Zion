@@ -387,7 +387,7 @@ def show_home():
 )
     ret_ag_del.update_layout(
         height= 180,
-        title_font_color= "#F6EFF3"
+        title_font_color= "#F6EFF3",
         yaxis= dict(
         title= False,
         showgrid= False,
