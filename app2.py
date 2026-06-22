@@ -320,10 +320,10 @@ def show_home():
     returned_orders_yearly_line.update_layout(
         height= 180,
         xaxis= dict(
-            title= None
+            title= None,
             showgrid= False),
         yaxis= dict(
-            title= None
+            title= None,
             showgrid= False))
         
     yearly_sales_bar= px.area(
