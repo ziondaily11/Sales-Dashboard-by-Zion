@@ -103,7 +103,7 @@ def store_2(df):
     returned_order= len(df[df["order_status"] == "returned"])
     returned_orders_yearly = (
     df[df["order_status"] == "returned"]
-    .groupby("year")
+    .groupby(df["year"])
     .size()
     .reset_index(name="returned_orders")
      )
