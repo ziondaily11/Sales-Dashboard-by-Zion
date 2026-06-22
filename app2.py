@@ -193,8 +193,8 @@ def show_home():
     with col2:
             st.markdown("""
                 <h1 style="color: #ff4500; font-family: Courier New, monospace; 
-                        font-size:36px">
-                    AMAZON SALES DASHBOARD
+                        font-size:30px">
+                    AMAZON SALES PERFORMANCE DASHBOARD
                 </h1>
             """, unsafe_allow_html=True)
     
