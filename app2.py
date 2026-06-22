@@ -222,7 +222,8 @@ def show_home():
 
     left_column,middle_column, right_column, far_right, far= st.columns(5)
     with left_column:
-        st.metric(label="💰 Total Sales $", value=format_number(total_sales))
+        with st.container:
+              st.metric(label="💰 Total Sales $", value=format_number(total_sales))
       
     with middle_column:
         st.metric(label="📈 Profit $", value=format_number(total_profit))
