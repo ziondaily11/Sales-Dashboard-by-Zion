@@ -100,10 +100,13 @@ def store_2(df):
     gross_profit_margin= round(total_profit*100/total_sales) if total_sales else 0
     delivered_orders = len(df[df["order_status"] == "delivered"]) 
     #returned orders
+    df["order_date"]= pd.to_datetime(df["order_date"])
+    df["year"]= df["order_date"].dt.year
+    
     returned_order= len(df[df["order_status"] == "returned"])
     returned_orders_yearly = (
     df[df["order_status"] == "returned"]
-    .groupby(df["year"])
+    .groupby("year")
     .size()
     .reset_index(name="returned_orders")
      )
@@ -115,8 +118,7 @@ def store_2(df):
     ]
     profit_per_category["mark"]=  profit_per_category["net_sales"].apply(format_number) 
     #Sales per year
-    df["order_date"]= pd.to_datetime(df["order_date"])
-    df["year"]= df["order_date"].dt.year
+    
     
     max_year= df["year"].max()
     min_year= df["year"].min()
