@@ -362,7 +362,7 @@ def show_home():
     sales_channel_bar= px.bar(
         sales_channel,
         x= "sales_channel",
-        y= "net_sales"
+        y= "net_sales",
         title= "Sales by Channel",
         color_discrete_sequence= ["#F22C4D"])
     sales_channel_bar.update_layout(
