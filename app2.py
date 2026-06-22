@@ -211,7 +211,7 @@ def show_home():
                 font-size: 16px;
             }
             [data-testid="stMetricValue"] {
-                color: #ff4500;
+                color: #F4F2F1;
                 font-size: 28px;
             }
         </style>
