@@ -221,6 +221,21 @@ def show_home():
        
 
     left_column,middle_column, right_column, far_right, far= st.columns(5)
+    st.markdown("""
+        <style>
+        [data-testid="stMetric"] {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            padding: 10px;
+        }
+        
+        [data-testid="stVerticalBlock"] [data-testid="stVerticalBlock"] {
+            gap: 0rem;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        
+        
     with left_column:
         with st.container(border= True):
               st.metric(label="💰 Total Sales $", value=format_number(total_sales))
