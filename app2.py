@@ -317,6 +317,15 @@ def show_home():
         y="returned_orders",
         markers= True)
     
+    returned_orders_yearly_line.update_layout(
+        height= 180,
+        xaxis= dict(
+            title= None
+            showgrid= False),
+        yaxis= dict(
+            title= None
+            showgrid= False))
+        
     yearly_sales_bar= px.area(
         sales_per_year,
         x= "year",
