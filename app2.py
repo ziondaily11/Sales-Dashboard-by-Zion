@@ -136,7 +136,7 @@ def store_2(df):
     .sum()
     .reset_index()
                    )
-    mark= sales_channel["net_sales"].apply(format_number)
+    sales_channel["mark"]= sales_channel["net_sales"].apply(format_number)
     
     
     
@@ -154,8 +154,7 @@ def store_2(df):
         min_sales,
         max_sales,
         dt_pivot_norm,
-        sales_channel,
-        mark
+        sales_channel
     )
     #st.title(":bar_chart: Sales Dashboard")
 
@@ -177,8 +176,7 @@ def show_home():
         max_sales,
         min_sales,
         dt_pivot_norm,
-        sales_channel,
-        mark
+        sales_channel
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
@@ -368,11 +366,11 @@ def show_home():
         y= "net_sales",
         title= "Sales by Channel",
         color_discrete_sequence= ["#F22C4D"],
-        text= mark,
-        textposition= "outside")
+        text= "mark")
     sales_channel_bar.update_layout(
         height= 180,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
+        textposition= "outside",
         yaxis= dict(
             tickfont= dict(size= 8),
             showgrid= False,
