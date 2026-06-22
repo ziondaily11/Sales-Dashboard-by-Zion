@@ -186,7 +186,8 @@ def show_home():
         min_year,
         max_sales,
         min_sales,
-        returned_orders_yearly,
+        sales_channel,
+        returned_orders_yearly
         sales_channel
     ) = store_2(df)
     def format_number(num):
