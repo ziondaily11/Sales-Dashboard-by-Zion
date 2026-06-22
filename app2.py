@@ -363,7 +363,9 @@ def show_home():
         sales_channel,
         x= "sales_channel",
         y= "net_sales")
-    st.dataframe(df.head())
+    sales_channel_bar.update_layout(
+        height= 180,
+        margin= dict(t= 40, b= 10, l= 10, r= 10))
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
