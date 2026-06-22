@@ -365,7 +365,17 @@ def show_home():
         y= "net_sales")
     sales_channel_bar.update_layout(
         height= 180,
-        margin= dict(t= 40, b= 10, l= 10, r= 10))
+        margin= dict(t= 40, b= 10, l= 10, r= 10),
+        yaxis= dict(
+            showgrid= False,
+            title= None,
+            showticklabels= None
+        ),
+        xaxis= dict(
+            showgrid= False,
+            title= None,
+            showticklabels= None
+        ))
     left, right, far_right= st.columns([2, 1.5, 1.5])
     with left:
       with st.container(border= True):
