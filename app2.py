@@ -359,22 +359,7 @@ def show_home():
     dtick=1               
 )
 
-    orders_heat= px.imshow(
-        dt_pivot_norm,
-        color_continuous_scale= "Oranges",
-        title= "Order Concentration by Region & Year"
-    )
-    orders_heat.update_layout(
-        height= 180,
-        title_font_color= "#F6EFF3",
-        margin= dict(t= 40, b= 10, l= 10, r= 10),
-        xaxis= dict(
-            title= None
-        ),
-        yaxis= dict(
-            title= None
-        )
-    )
+   
      
     #sales Analysis
     sales_channel_bar= px.bar(
