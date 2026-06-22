@@ -187,8 +187,7 @@ def show_home():
         max_sales,
         min_sales,
         sales_channel,
-        returned_orders_yearly,
-        sales_channel
+        returned_orders_yearly
     ) = store_2(df)
     def format_number(num):
         if num >= 1_000_000_000:
