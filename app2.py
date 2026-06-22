@@ -313,7 +313,7 @@ def show_home():
     #sales Per year line graph
     returned_orders_yearly_line= px.area(
         returned_orders_yearly,
-        x= returned_orders_yearly"year",
+        x= "year",
         y="returned_orders",
         markers= True)
     
