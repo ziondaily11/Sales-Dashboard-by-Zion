@@ -132,9 +132,10 @@ def store_2(df):
     dt_pivot.columns= dt_pivot.columns.droplevel(0).astype(int)
     dt_pivot_norm= dt_pivot.div(dt_pivot.max(axis= 1), axis= 0)
     #Sales channel Analysis
-    sales_channel= df.groupby(by= df["sales_channel"])[["net_sales"]]
+    sales_channel= (df.groupby(by= df["sales_channel"])[["net_sales"]]
     .sum()
     .reset_index()
+                   )
     
     
     
