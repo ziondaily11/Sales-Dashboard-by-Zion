@@ -311,7 +311,7 @@ def show_home():
     
     
     yearly_sales_bar.update_layout(
-        height= 230,
+        height= 200,
         margin= dict(t= 40, b= 10, l= 10, r= 10),
         xaxis= dict(
             tickvals= list(range(int(min_year), int(max_year)+1)),
