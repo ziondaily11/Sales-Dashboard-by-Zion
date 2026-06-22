@@ -366,7 +366,10 @@ def show_home():
         values= del_counts["order_id"],
         hole= 0.8,
         textinfo= "none",
-        domain= dict(x= [0.1, 0.7], y= [0.1, 0.7])
+        domain=dict(
+            x=[0.15, 0.85],
+            y=[0.15, 0.85]
+            )
     ))
     status_pie.update_layout(
         height= 250,
@@ -409,7 +412,7 @@ def show_home():
         with st.container(border= True):
           st.plotly_chart(region_sales_bar)
         with st.container(border= True):
-            st.plotly_chart(ret_ag_del)
+            st.plotly_chart(status_pie)
    
 
     
